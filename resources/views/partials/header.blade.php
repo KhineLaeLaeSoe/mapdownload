@@ -225,7 +225,7 @@
                   
                  <li class="group relative">
                     <a href="{{ url('/maps') }}"
-                    class="mx-8 flex py-2 text-base font-medium text-blue-600 group-hover:text-blue-700 dark:text-blue-400 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:group-hover:opacity-70"
+                       class="mx-8 flex py-2 text-base font-medium text-blue-600 group-hover:text-blue-700 dark:text-blue-400 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:group-hover:opacity-70"
                     role="menuitem">Maps
                     </a>
                   </li>
@@ -237,6 +237,7 @@
                       role="menuitem">Contact Us
                     </a>
                   </li>
+                 
 
                 </ul>
               </nav>
@@ -248,6 +249,19 @@
                 aria-label="Switch theme"
                 data-web-trigger="web-theme"
               ></button>
+                <li class="group relative">
+                   <a href="{{ route('login') }}"
+                    class="mx-8 flex py-2 text-base font-medium text-blue-600 group-hover:text-blue-700 dark:text-blue-400 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:group-hover:opacity-70"
+                    role="menuitem">Login
+                    </a>
+                  </li>
+
+                   <li class="group relative">
+                     <a href="{{ route('register') }}"
+                    class="mx-8 flex py-2 text-base font-medium text-blue-600 group-hover:text-blue-700 dark:text-blue-400 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:group-hover:opacity-70"
+                    role="menuitem">Register
+                    </a>
+                  </li>
               {{-- <div class="hidden sm:flex">
                 <a
                   href="javascript:void(0)"

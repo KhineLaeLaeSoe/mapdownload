@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.temp')
 @section('title', 'Home Page')
   @push('meta')
     <meta name="keyword" content="Map download">
@@ -31,21 +31,18 @@
                 <ul
                   class="mb-10 flex flex-wrap items-center justify-center gap-4 md:gap-5"
                 >
-                  <li>
-                    <a
-                      href="javascript:void(0)"
-                      class="inline-flex items-center justify-center rounded-md bg-primary-color text-primary px-5 py-3 text-center text-base font-medium shadow-md hover:bg-primary-light-5 md:px-7 md:py-[14px]"
-                      role="button"
-                      >Get Started</a
-                    >
-                  </li>
+                  {{-- <li>
+                   <a href="{{ route('download.map') }}" class="btn btn-primary">
+     Download Free Maps
+                  </a>
+                  </li> --}}
 
                   <li>
                     <a
-                      href="javascript:boid(0)"
+                      href="{{ url('/buy-map') }}"
                       class="video-popup flex items-center gap-4 rounded-md bg-primary-color/[0.15] px-5 py-3 text-base font-medium text-primary-color hover:bg-primary-color hover:text-primary md:px-7 md:py-[14px]"
                       role="button"
-                      ><i class="lni lni-play text-lg/none"></i> Watch Intro</a
+                      ><i class="lni lni-play text-lg/none"></i>Buy Map</a
                     >
                   </li>
                 </ul>
@@ -203,9 +200,13 @@
                     GIS Maps
                   </h4>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptatum dolores autem quidem odit beatae perspiciatis!
-                    Rem.
+                    Google Map နှင့် Digital Map များ ခေတ်၌ လုပ်ငန်းများတွင် မြေပုံအသုံးပြုမှုများလည်း များစွာပြောင်းလဲသွားပြီဖြစ်သည်။
+                    ပစ္စည်းထုတ်လုပ်ဖြန့်ဖြူးသူများသည် ၎င်းတို့ရောင်းကုန်ပစ္စည်းများ တင်ရမည့်ဆိုင်များကို မြေပုံပေါ်သို့တင်ပြီး ၎င်းဆိုင်နေရာကို Click 
+                    နှိပ်ရုံဖြင့် ဆိုင်အမည်၊ ဖုန်းနံပါတ် ၊ဆိုင်တွင်တင်သော ပစ္စည်းများ မိမိ ပစ္စည်းကို ဖြန့်ပေးသည့် နှုန်းများအပြင် ဆိုင် ဓာတ်ပုံကိုပါ တွဲ၍
+                    ကြည့်နိုင်ပြီး ရောင်းအားအကောင်းဆုံးမှ အနည်းဆူံးကို Sorting စီပြီး အရောင်ခွဲကာ ခြုံငုံသုံးသပ်မှုများ ပြုလုပ်နိုင်ပြီဖြစ်သည်။
+                    ၎င်း ဒေတာ များကိုပင် မိမိလုပ်ငန်းအတွင်း ဌာန အသီးသီး Website မှ တစ်ဆင့်ရှယ်သုံးရန်ဆောင်ရွက်နိုင်ပြီဖြစ်သည်။DPS သည်
+                    လုပ်ငန်းအသီးသီး၏ Digital Map လိုအပ်ချက်များအတွက် GPS Camera များ၊ 360 Camera များ၊Done များ၊ဂြိုလ်တုပုံများအပြင်
+                    OpenStreet Map၊  Google Map တို့နှင့် မိမိကိုယ်ပိုင် Data များကို တွဲဖက်အသုံးပြုနိုင်အောင်ဆောင်ရွက်ပေးလျက်ရှိပါသည်။
                   </p>
                 </div>
               </div>
@@ -360,7 +361,7 @@
                 </div>
                 <div class="pt-8 pb-10">
                   <a
-                    href="javascript:void(0)"
+                    href="{{ url('/maps') }}"
                     class="inline-block font-medium px-6 py-3 rounded-md bg-primary/10 text-primary hover:bg-primary hover:text-primary-color focus:bg-primary focus:text-primary-color"
                     >Start Free Trial</a
                   >
