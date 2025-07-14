@@ -49,4 +49,6 @@ class User extends Authenticatable
         'password' => 'hashed',
         'date_of_birth' => 'date',
     ];
+
+    
 }

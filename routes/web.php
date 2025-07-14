@@ -2,8 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MapController;
-use App\Http\Controllers\LoginController;
+// use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\AdminMapController;
+use App\Http\Controllers\MapPurchaseController;
+use App\Http\Controllers\MapDownloadController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +23,7 @@ use App\Http\Controllers\PaymentController;
 Route::get('/', function () {
     return view('pages.index');
 });
-Route::get('/maps', [MapController::class, 'index']);
+Route::get('/pages/maps', [MapController::class, 'mapHome'])->name('maps.index');
 
 Auth::routes();
 
@@ -32,3 +36,45 @@ Route::get('/buy-map', [MapController::class, 'buyMapForm']);
 Route::post('/buy-map-submit', [MapController::class, 'submitPayment'])->name('buy.map.submit');
 
 Route::get('/download-paid/{id}', [MapController::class, 'downloadPaidMap'])->name('paid.map.download');
+
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::resource('maps', AdminMapController::class)->names([
+        'index' => 'admin.maps.index',
+        'create' => 'admin.maps.create',
+        'store' => 'admin.maps.store',
+        'destroy' => 'admin.maps.destroy',
+    ]);
+});
+
+// Route::get('/home', function () {
+//     return view('home'); // resources/views/home.blade.php
+// })->middleware(['auth']);
+
+//Only Admin Routes
+Route::middleware(['auth', 'is_admin'])->prefix('admin')->group(function () {
+    // Route::get('/maps', function () {
+    //     return view('admin.maps.index'); // admin dashboard
+    // });
+     Route::get('/maps', [MapController::class, 'adminIndex'])->name('maps.index');
+});
+//Protect User Dashboard 
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('/user/dashboard', function () {
+//         return view('user.dashboard');
+//     });
+// });
+
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect('/');
+})->name('logout');
+
+
+Route::get('/admin/maps', [MapController::class, 'index'])->middleware(['auth', 'admin']);
+
+Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function () {
+    Route::get('/maps', [MapController::class, 'index'])->name('admin.maps.index');
+});
+
+Route::post('/buy-map', [MapPurchaseController::class, 'submit'])->name('buy.map.submit');
+Route::get('/download/map/{file}', [MapDownloadController::class, 'download'])->middleware('signed')->name('map.download');

@@ -4,49 +4,36 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Payment;
+use App\Models\Map;
 
 class MapController extends Controller
 {
     //
     public function index()
     {
-        return view('pages.maps');
+        $maps = Map::all(); // ဒါက database ထဲက map list အားလုံးကိုယူတယ်
+
+    return view('admin.maps.index', compact('maps'));
+        // return view('pages.maps');
+    }
+    // mapHome
+     public function mapHome()
+    {
+        $maps = Map::all(); // ဒါက database ထဲက map list အားလုံးကိုယူတယ်
+
+    return view('pages.maps', compact('maps'));
+        // return view('pages.maps');
     }
      public function downloadFree(Request $request)
     {
-        // dd($request->all());
-        $city = $request->city;
-        // dd($city);
-        //  <option value="yangon">Yangon</option>
-        //            <option value="mandalay">Mandalay</option>
-        //            <option value="myanmar">Myanmar Map(Mya)</option>
-        //            <option value="pyinoolwin">Pyinoolwin Map</option>
-        //            <option value="amarapura">Amarapura Map</option>
-        //            <option value="taunggyi">Taunggyi Map</option>
-        //             <option value="dagon">Dagon Map</option>
+        
 
-    // 1. Allow only valid city names
-    $validCities = ['yangon', 'mandalay', 'myanmar', 'pyinoolwin', 'amarapura', 'taunggyi','dagon'];
-    if (!in_array($city, $validCities)) {
-        abort(400, 'Invalid city selected.');
-    }
-    // else {
-        // dd($city);
-    // }
 
-    // 2. Try jpg / png
-    $extensions = ['jpg', 'jpeg', 'png'];
-    foreach ($extensions as $ext) {
-        $path = storage_path("app/public/maps/free/{$city}.{$ext}");
-        if (file_exists($path)) {
-            dd($path);
-            return response()->download($path, ucfirst($city) . "-Map.{$ext}");
-        }
+    
+        
     }
 
-    // 3. If no file found
-    abort(404, 'Map image not found.');
-}
+ 
 
     public function buyMapForm()
     {
@@ -57,6 +44,7 @@ class MapController extends Controller
     {
         // $city = $request->city;
         // $filePath = "maps/paid/{$city}-detail.pdf";
+        $maps = Map::all();
         $payment_method = 'kbz';
          $payment = Payment::create([
             'name' => $request->name,

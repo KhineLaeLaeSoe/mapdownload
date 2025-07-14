@@ -193,7 +193,7 @@
                 <div
                   class="w-[70px] h-[70px] rounded-2xl mb-6 flex items-center justify-center text-[37px]/none bg-primary text-primary-color"
                 >
-                  <i class="lni lni-capsule"></i>
+                <i class="lni lni-capsule"></i>
                 </div>
                 <div class="w-full">
                   <h4 class="text-[1.25rem]/tight font-semibold mb-5">
@@ -234,11 +234,9 @@
 
             <div class="scroll-revealed col-12 sm:col-6 lg:col-4">
               <div class="group hover:-translate-y-1">
-                <div
-                  class="w-[70px] h-[70px] rounded-2xl mb-6 flex items-center justify-center text-[37px]/none bg-primary text-primary-color"
-                >
-                  <i class="lni lni-gift"></i>
-                </div>
+               <div class="w-[70px] h-[70px] rounded-2xl mb-6 flex items-center justify-center bg-primary">
+              <img src="/images/icons/mapof.png" alt="Map Icon" class="w-8 h-8 object-contain" />
+              </div>
                 <div class="w-full">
                   <h4 class="text-[1.25rem]/tight font-semibold mb-5">
                     Tourist Maps

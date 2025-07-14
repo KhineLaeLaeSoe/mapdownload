@@ -48,7 +48,7 @@
     <meta name="theme-color" content="#3d63dd" />
 
     <!-- Page title -->
-    <title>Inazuma | Tailwind CSS Company Landing Page</title>
+    <title>Register  | Tailwind CSS Company Landing Page</title>
 
     <!-- Canonical -->
     <link rel="canonical" href="https://ranyeh24.github.io/inazuma-tailwind" />
@@ -224,7 +224,7 @@
 
                   
                  <li class="group relative">
-                    <a href="{{ url('/maps') }}"
+                    <a href="{{ route('maps.index') }}"
                        class="mx-8 flex py-2 text-base font-medium text-blue-600 group-hover:text-blue-700 dark:text-blue-400 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:group-hover:opacity-70"
                     role="menuitem">Maps
                     </a>

@@ -14,7 +14,8 @@ class PaymentController extends Controller
     // }
 
     // public function submitForm(Request $request)
-    // {
+    // {php artisan make:controller MapPurchaseController
+
     //     $payment = Payment::create([
     //         'name' => $request->name,
     //         'phone' => $request->phone,

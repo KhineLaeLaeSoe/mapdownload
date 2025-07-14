@@ -26,6 +26,20 @@
                     placeholder="Enter your name"
                 >
             </div>
+            <div class="col-md-6">
+                <label for="name" class="block text-gray-700 text-sm font-semibold mb-2">Email:</label>
+                    <input id="email"
+                         type="email"
+                        class="form-control 
+                    @error('email') is-invalid 
+                    @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                     @error('email')
+                         <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                     @enderror
+            </div>
 
             <div>
                 <label for="phone" class="block text-gray-700 text-sm font-semibold mb-2">Phone:</label>
@@ -39,7 +53,7 @@
                 >
             </div>
 
-            <div>
+            {{-- <div>
                 <label for="city" class="block text-gray-700 text-sm font-semibold mb-2">Select City:</label>
                 <select
                     name="city"
@@ -50,7 +64,7 @@
                     <option value="yangon">Yangon</option>
                     <option value="mandalay">Mandalay</option>
                 </select>
-            </div>
+            </div> --}}
             <div>
     <label for="transaction_no" class="block text-gray-700 text-sm font-semibold mb-2">
         Enter Transaction No. (Last 6 digits):
