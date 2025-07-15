@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Payment;
+use Illuminate\Support\Facades\Mail;
 
 class PaymentController extends Controller
 {
@@ -36,4 +37,26 @@ class PaymentController extends Controller
 
     //     return response()->download(storage_path('app/' . $payment->pdf_file));
     // }
+    public function sendPaymentReceipt($customerEmail, $customerName, $amount)
+{
+     
+    $data = [
+        'customerName' => $customerName,
+        'amount' => number_format($amount),
+        'date' => now()->format('Y-m-d H:i'),
+    ];
+
+    Mail::send('emails.payment-receipt', $data, function ($message) use ($customerEmail) {
+        $message->to($customerEmail)
+                ->subject('Payment Receipt from DPS Map');
+    });
+//     $request->validate([
+//     'name' => 'required|string|max:255',
+//     'phone' => 'required|string|max:20',
+//     'email' => 'required|email',
+//     'map_title' => 'required|string',
+//     'payment_method' => 'required|string',
+//     // Add others if needed
+// ]);
+}
 }

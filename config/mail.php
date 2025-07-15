@@ -83,6 +83,11 @@ return [
                 'smtp',
                 'log',
             ],
+        'from' => [
+            'address' => env('MAIL_FROM_ADDRESS', 'info@dpsmap.com'),
+            'name' => env('MAIL_FROM_NAME', 'Map Download'),
+],
+
         ],
     ],
 

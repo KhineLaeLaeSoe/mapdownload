@@ -10,9 +10,14 @@
         <br>
           <br>
             <br>
-        <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Buy Detailed Map</h2>
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Buy Detailed Maps</h2>
 
-        <form method="POST" action="{{ route('buy.map.submit') }}" class="space-y-5">
+        @if (session('success'))
+            <div class="bg-green-100 text-green-800 p-4 rounded mb-4" style="text-align: center;background-color: #000000ff; color: #f7fff9ff;">
+                {{ session('success') }}
+            </div>
+        @endif
+        <form method="POST" action="{{ route('buyMap') }}" class="space-y-5" enctype="multipart/form-data">
             @csrf
 
             <div>
@@ -30,9 +35,10 @@
                 <label for="name" class="block text-gray-700 text-sm font-semibold mb-2">Email:</label>
                     <input id="email"
                          type="email"
-                        class="form-control 
+                         class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="Enter your email"
                     @error('email') is-invalid 
-                    @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    @enderror name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                      @error('email')
                          <span class="invalid-feedback" role="alert">
@@ -79,7 +85,6 @@
         placeholder="e.g. 123456"
     >
 </div>
-
 <div>
     <label for="amount" class="block text-gray-700 text-sm font-semibold mb-2">
         Enter Top-up Amount:
@@ -108,6 +113,11 @@
                     <option value="wavepay">WavePay</option>
                 </select>
             </div>
+            <br>
+            <div>
+                <label for="file">Payment Image:</label>
+               <input type="file" name="file" required><br>
+            </div><br>
 
             <button
                 type="submit"

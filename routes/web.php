@@ -76,5 +76,27 @@ Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function () {
     Route::get('/maps', [MapController::class, 'index'])->name('admin.maps.index');
 });
 
-Route::post('/buy-map', [MapPurchaseController::class, 'submit'])->name('buy.map.submit');
+//buy map routes
+Route::get('/buyMap', fn() => view('buyMap'));
+Route::post('/buyMap', [MapPurchaseController::class, 'submit'])->name('buy.map.submits');
+// Route::post('/buy-map', [MapPurchaseController::class, 'submitPayment'])->name('buy.map.submits');
+Route::get('/admin/approve/{id}', [MapPurchaseController::class, 'approve'])->name('maps.approve');
+Route::get('/download/map/{id}', [MapPurchaseController::class, 'download'])->name('maps.download');
+Route::post('/buyMap', [MapPurchaseController::class, 'submitPayment'])->name('buyMap');
 Route::get('/download/map/{file}', [MapDownloadController::class, 'download'])->middleware('signed')->name('map.download');
+
+Route::get('/send-test-receipt', function () {
+    $controller = new \App\Http\Controllers\PaymentController;
+    return $controller->sendPaymentReceipt('customer@gmail.com', 'Mg Mg', 2000);
+});
+
+Route::get('download/map/{id}', [MapDownloadController::class, 'download']);
+//email test route
+// Route::get('/test-mail', function () {
+//     Mail::raw('This is a test email from DPS Map.', function ($message) {
+//         $message->to('e667479@gmail.com') // <-- ကိုယ့် Gmail သုံး
+//                 ->subject('Test Email');
+//     });
+
+//     return 'Email sent!';
+// });

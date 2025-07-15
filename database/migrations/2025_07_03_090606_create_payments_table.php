@@ -15,11 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('phone');
-            $table->string('city');
+            $table->string('email');
+            $table->string('map_title');
             $table->string('payment_method'); // kbzpay / wavepay
             $table->boolean('is_paid')->default(false);
             $table->string('pdf_file')->nullable(); // storage path
             $table->timestamp('paid_at')->nullable();
+            $table->string('status')->default('pending');
+            $table->integer('amount')->nullable(); // Amount of the payment
             $table->timestamps();
         });
     }

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Map;
+use App\Models\Order;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
 
 class AdminMapController extends Controller
 {
@@ -73,4 +75,21 @@ class AdminMapController extends Controller
         $map->delete();
         return back()->with('success', 'Map deleted.');
     }
+
+    
+public function approve($id)
+{
+    $order = Order::findOrFail($id);
+    $order->status = 'approved';
+    $order->save();
+
+    // Email ပေးပို့
+    Mail::send('emails.download-link', ['order' => $order], function ($message) use ($order) {
+        $message->to($order->email)
+                ->subject('Download Link for Your Map');
+    });
+
+    return redirect()->back()->with('success', 'Order approved and email sent.');
+}
+
 }

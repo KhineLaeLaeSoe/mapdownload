@@ -1,8 +1,9 @@
 @component('mail::message')
-# 🗺️ New Map Purchase Request
+#  New Map Purchase Request
 
 **Name:** {{ $details['name'] }}  
 **Email:** {{ $details['email'] }}  
+{{-- **Password:** {{ $details['password'] }} --}}
 **Phone:** {{ $details['phone'] }}  
 **Transaction No:** {{ $details['transaction_no'] }}  
 **Amount:** {{ $details['amount'] }} MMK  
