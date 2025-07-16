@@ -14,6 +14,7 @@ class MapPurchaseController extends Controller
 {
     public function submitPayment(Request $request)
     {
+        // Form Submit လုပ်သော controller start
         // dd($request->all());
         //  $data = $request->validate([
         // 'name' => 'required|string',
@@ -24,6 +25,9 @@ class MapPurchaseController extends Controller
         // 'payment_method' => 'required|in:kbzpay,wavepay',
         // 'file' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
         // ]);
+        $payment = Payment::create($request->all());
+        // return redirect()->back()->with('success', 'Your request has been submitted!');
+// Form Submit လုပ်သော controller end
      $filePath = $request->file('file')->store('payment-images');
         $payment = Payment::create($request->all());
         $payment['amount'] = $request->amount;
@@ -40,7 +44,7 @@ class MapPurchaseController extends Controller
             //     ->subject('Test Email');
             Mail::send('emails.customer-map-request', ['payment' => $payment], function ($message) use ($payment, $filePath) {
             $message->to('admin@example.com') // ✅ Admin Email
-                ->subject('🧾 New Map Payment with Image Attached')
+                ->subject(' New Map Payment with Image Attached')
                 ->attach(storage_path('app/' . $filePath));
     });
     

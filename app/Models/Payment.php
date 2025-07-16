@@ -14,6 +14,7 @@ class Payment extends Model
     'name',
     'phone',
     'email',
+    'transaction_no' => 'required|digits:6',
     'map_title',
     'payment_method',
     'is_paid',

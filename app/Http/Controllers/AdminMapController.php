@@ -14,6 +14,8 @@ class AdminMapController extends Controller
     public function index()
     {
         $maps = Map::all();
+        $maps = Map::latest()->get();
+        // $payments = Payment::latest()->get();
         return view('admin.maps.index', compact('maps'));
     }
 
@@ -77,19 +79,20 @@ class AdminMapController extends Controller
     }
 
     
-public function approve($id)
-{
-    $order = Order::findOrFail($id);
-    $order->status = 'approved';
-    $order->save();
+// public function approve($id)
+// {
+//     $order = Order::findOrFail($id);
+//     $order->status = 'approved';
+//     $order->save();
 
-    // Email ပေးပို့
-    Mail::send('emails.download-link', ['order' => $order], function ($message) use ($order) {
-        $message->to($order->email)
-                ->subject('Download Link for Your Map');
-    });
+//     // Email ပေးပို့
+//     Mail::send('emails.download-link', ['order' => $order], function ($message) use ($order) {
+//         $message->to($order->email)
+//                 ->subject('Download Link for Your Map');
+//     });
 
-    return redirect()->back()->with('success', 'Order approved and email sent.');
-}
+//     return redirect()->back()->with('success', 'Order approved and email sent.');
+// }
+
 
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\AdminMapController;
 use App\Http\Controllers\MapPurchaseController;
 use App\Http\Controllers\MapDownloadController;
+use App\Http\Controllers\AdminPaymentController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -73,8 +74,12 @@ Route::post('/logout', function () {
 Route::get('/admin/maps', [MapController::class, 'index'])->middleware(['auth', 'admin']);
 
 Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function () {
-    Route::get('/maps', [MapController::class, 'index'])->name('admin.maps.index');
+Route::get('/maps', [MapController::class, 'index'])->name('admin.maps.index');
 });
+//Admin payment routes
+Route::get('/admin/payments', [AdminPaymentController::class, 'index'])->name('admin.payments.index');
+Route::put('/admin/payments/{id}/approve', [AdminPaymentController::class, 'approve'])->name('admin.payments.approve');
+
 
 //buy map routes
 Route::get('/buyMap', fn() => view('buyMap'));

@@ -6,37 +6,33 @@ use Illuminate\Http\Request;
 use App\Models\Payment;
 use Illuminate\Support\Facades\Mail;
 
+
 class PaymentController extends Controller
-{
-    //
-    // public function showForm()
-    // {
-    //     return view('payment-form');
-    // }
+{  //
+    public function index()
+    {
+        $payments = Payment::orderBy('created_at', 'desc')->get();
+        return view('admin.maps.index', compact('index'));
+    }
+    public function approve($id)
+    {
+        $payment = Payment::findOrFail($id);
+        $payment->status = 'approved';
+        $payment->is_paid = true;
+        $payment->pdf_file = 'maps/paid/yangon-detail.pdf'; // ✅ send this file
+        $payment->paid_at = now();
+        $payment->save();
 
-    // public function submitForm(Request $request)
-    // {php artisan make:controller MapPurchaseController
+        // ✅ Send email with download link
+        Mail::send('emails.download-link', ['payment' => $payment], function ($message) use ($payment) {
+            $message->to($payment->email)
+                ->subject(' Map Download Link Ready');
+        });
 
-    //     $payment = Payment::create([
-    //         'name' => $request->name,
-    //         'phone' => $request->phone,
-    //         'payment_method' => $request->payment_method,
-    //         'pdf_file' => 'pdfs/4000 essential word.pdf',
-    //     ]);
+        return back()->with('success', 'Approved and email sent to customer!');
+    }
+    
 
-    //     return view('pending-payment', compact('payment'));
-    // }
-
-    // public function downloadPDF($id)
-    // {
-    //     $payment = Payment::findOrFail($id);
-
-    //     if (!$payment->is_paid) {
-    //         abort(403, 'Payment not completed yet.');
-    //     }
-
-    //     return response()->download(storage_path('app/' . $payment->pdf_file));
-    // }
     public function sendPaymentReceipt($customerEmail, $customerName, $amount)
 {
      

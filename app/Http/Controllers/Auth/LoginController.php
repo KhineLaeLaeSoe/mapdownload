@@ -64,12 +64,18 @@ public function showLoginForm()
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
-
+        
         if (Auth::attempt($credentials)) {
             // Login success
             if (Auth::user()->is_admin == 1) {
+                // $paytments = \App\Models\Payment::where('status', 'pending')->get();
+                $payments = \App\Models\Payment::all();
+                $maps = \App\Models\Map::all();
+                // dd("hello");
+                    // return redirect()->to('admin/maps',['payments' => $payments]); // Redirect to admin maps index
+                return view('admin.maps.index', compact(['maps','payments']))->with('status', 'You are logged in as admin!');
                 // Redirect admin to admin.maps.index route
-                return redirect()->route('admin.maps.index')->with('status', 'You are logged in as admin!');
+                // return redirect()->route('admin.maps.index')->with('status', 'You are logged in as admin!');
             }
             // Redirect normal user to intended route or home
             return redirect()->intended('home')->with('status', 'You are logged in!');
