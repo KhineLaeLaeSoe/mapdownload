@@ -44,7 +44,7 @@ public function approve(Request $request, Payment $payment,$id)
     //             ->attach(storage_path('app/' . $filePath));
     // });
 
-      Mail::send('emails.customer-map-request', ['payment' => $payment], function ($message) use ($payment) {
+      Mail::send('emails.download-link', ['payment' => $payment], function ($message) use ($payment) {
             $message->to($payment->email) // ✅ Admin Email
                 ->subject('approved Map Payment with Image Attached');
                 // ->attach(storage_path('app/' . $filePath));

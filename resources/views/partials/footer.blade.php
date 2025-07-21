@@ -52,7 +52,7 @@
 
               <div class="-mx-3 flex items-center">
                 <a
-                  href="javascript:void(0)"
+                  href="https://www.facebook.com/share/14ET2MNXv6U/"
                   class="px-3 text-body-dark-11 hover:text-primary text-[22px] leading-none"
                 >
                   <i class="lni lni-facebook-fill"></i>
@@ -62,7 +62,7 @@
                   href="javascript:void(0)"
                   class="px-3 text-body-dark-11 hover:text-primary text-[22px] leading-none"
                 >
-                  <i class="lni lni-twitter-original"></i>
+                  <i class="lni lni-viber"></i>
                 </a>
 
                 <a

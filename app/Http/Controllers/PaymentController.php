@@ -33,13 +33,14 @@ class PaymentController extends Controller
     }
     
 
-    public function sendPaymentReceipt($customerEmail, $customerName, $amount)
+    public function sendPaymentReceipt($customerEmail, $customerName, $amount, $transactionNo)
 {
      
     $data = [
         'customerName' => $customerName,
         'amount' => number_format($amount),
         'date' => now()->format('Y-m-d H:i'),
+        'transaction_no' => $transactionNo,
     ];
 
     Mail::send('emails.payment-receipt', $data, function ($message) use ($customerEmail) {

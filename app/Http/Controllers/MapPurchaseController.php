@@ -26,11 +26,14 @@ class MapPurchaseController extends Controller
         // 'file' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
         // ]);
         $payment = Payment::create($request->all());
+        // dd($payment);
         // return redirect()->back()->with('success', 'Your request has been submitted!');
 // Form Submit လုပ်သော controller end
-     $filePath = $request->file('file')->store('payment-images');
-        $payment = Payment::create($request->all());
+       $filePath = $request->file('file')->store('payment-images');
+        // $payment = Payment::create($request->all());
+        // dd($payment);
         $payment['amount'] = $request->amount;
+        $payment['transaction_no'] = $request->transaction_no;
         if($payment['amount']){
             $payment['paid_at'] = now();
         }

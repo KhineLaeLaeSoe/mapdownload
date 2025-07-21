@@ -12,7 +12,22 @@ class MapController extends Controller
     //
     public function index()
     {
-        $maps = Map::all(); // ဒါက database ထဲက map list အားလုံးကိုယူတယ်
+        //search map
+        $search = request()->query('search');
+        if ($search) {
+            $maps = Map::where('name', 'LIKE', "%{$search}%")->get();
+        } else {
+            $maps = Map::all();
+        }
+
+
+
+
+
+
+
+        
+    // $maps = Map::all(); // ဒါက database ထဲက map list အားလုံးကိုယူတယ်
 
     return view('admin.maps.index', compact('maps'));
         // return view('pages.maps');

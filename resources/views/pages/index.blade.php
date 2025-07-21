@@ -60,7 +60,7 @@
             <div class="w-full">
               <figure class="scroll-revealed max-w-[480px] mx-auto">
                 <img
-                  src="./assets/img/Aboutimg.jpg"
+                  src="{{ asset('public/assets/images/Aboutimg.jpg ')}}"
                   alt="About image"
                   class="rounded-xl"
                 />
@@ -176,142 +176,265 @@
 
       <!-- Services section -->
       <section id="services" class="section-area">
-        <div class="container">
-          <div class="scroll-revealed text-center max-w-[550px] mx-auto mb-12">
-            <h6 class="mb-2 block text-lg font-semibold text-primary">
-              Services
-            </h6>
-            <h2 class="mb-6">Our Services</h2>
-            <p>
-              DPS Company မှ ဝန်ဆောင်မှုပေးလျက်ရှိသော လုပ်ငန်းများ
-            </p>
-          </div>
+     <style>
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f8fafc;
+  margin: 0;
+  color: #333;
+}
 
-          <div class="row">
-            <div class="scroll-revealed col-12 sm:col-6 lg:col-4">
-              <div class="group hover:-translate-y-1">
-                <div
-                  class="w-[70px] h-[70px] rounded-2xl mb-6 flex items-center justify-center text-[37px]/none bg-primary text-primary-color"
-                >
-                <i class="lni lni-capsule"></i>
-                </div>
-                <div class="w-full">
-                  <h4 class="text-[1.25rem]/tight font-semibold mb-5">
-                    GIS Maps
-                  </h4>
-                  <p>
-                    Google Map နှင့် Digital Map များ ခေတ်၌ လုပ်ငန်းများတွင် မြေပုံအသုံးပြုမှုများလည်း များစွာပြောင်းလဲသွားပြီဖြစ်သည်။
-                    ပစ္စည်းထုတ်လုပ်ဖြန့်ဖြူးသူများသည် ၎င်းတို့ရောင်းကုန်ပစ္စည်းများ တင်ရမည့်ဆိုင်များကို မြေပုံပေါ်သို့တင်ပြီး ၎င်းဆိုင်နေရာကို Click 
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header h6 {
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  margin-top: 0.5rem;
+  color: #1f2937;
+}
+
+/* Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Card */
+.service-card {
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.25rem;
+  color: #111827;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.service-card button {
+  margin-top: 1rem;
+  align-self: start;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.service-card button:hover {
+  background-color: #1e40af;
+}
+
+/* Read more toggle */
+.more {
+  display: none;
+}
+</style>
+</head>
+<body>
+
+<section id="services" class="services-section">
+  <div class="container">
+    <div class="section-header">
+      <h5 class="mb-6">Our Services</h5>
+      <h2>Explore Our Services</h2>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- GIS map-->
+      <div class="service-card">
+      
+        <img src="{{asset('assets/images/avatar/GIS map.jpg')}}" alt="GIS Maps">
+        <h3> GIS Maps</h3>
+        <p>
+         Google Map နှင့် Digital Map များ ခေတ်၌ လုပ်ငန်းများတွင် မြေပုံအသုံးပြုမှုများလည်း များစွာပြောင်းလဲသွားပြီဖြစ်သည်။
+          <span class="dots">...</span>
+          <span class="more">  ပစ္စည်းထုတ်လုပ်ဖြန့်ဖြူးသူများသည် ၎င်းတို့ရောင်းကုန်ပစ္စည်းများ တင်ရမည့်ဆိုင်များကို မြေပုံပေါ်သို့တင်ပြီး ၎င်းဆိုင်နေရာကို Click 
                     နှိပ်ရုံဖြင့် ဆိုင်အမည်၊ ဖုန်းနံပါတ် ၊ဆိုင်တွင်တင်သော ပစ္စည်းများ မိမိ ပစ္စည်းကို ဖြန့်ပေးသည့် နှုန်းများအပြင် ဆိုင် ဓာတ်ပုံကိုပါ တွဲ၍
                     ကြည့်နိုင်ပြီး ရောင်းအားအကောင်းဆုံးမှ အနည်းဆူံးကို Sorting စီပြီး အရောင်ခွဲကာ ခြုံငုံသုံးသပ်မှုများ ပြုလုပ်နိုင်ပြီဖြစ်သည်။
                     ၎င်း ဒေတာ များကိုပင် မိမိလုပ်ငန်းအတွင်း ဌာန အသီးသီး Website မှ တစ်ဆင့်ရှယ်သုံးရန်ဆောင်ရွက်နိုင်ပြီဖြစ်သည်။DPS သည်
                     လုပ်ငန်းအသီးသီး၏ Digital Map လိုအပ်ချက်များအတွက် GPS Camera များ၊ 360 Camera များ၊Done များ၊ဂြိုလ်တုပုံများအပြင်
-                    OpenStreet Map၊  Google Map တို့နှင့် မိမိကိုယ်ပိုင် Data များကို တွဲဖက်အသုံးပြုနိုင်အောင်ဆောင်ရွက်ပေးလျက်ရှိပါသည်။
-                  </p>
-                </div>
-              </div>
-            </div>
+                    OpenStreet Map၊  Google Map တို့နှင့် မိမိကိုယ်ပိုင် Data များကို တွဲဖက်အသုံးပြုနိုင်အောင်ဆောင်ရွက်ပေးလျက်ရှိပါသည်။</span>
+        </p>
+        <button onclick="toggleReadMore(this)">Read more</button>
+      </div>
 
-            <div class="scroll-revealed col-12 sm:col-6 lg:col-4">
-              <div class="group hover:-translate-y-1">
-                <div
-                  class="w-[70px] h-[70px] rounded-2xl mb-6 flex items-center justify-center text-[37px]/none bg-primary text-primary-color"
-                >
-                  <i class="lni lni-tailwindcss"></i>
-                </div>
-                <div class="w-full">
-                  <h4 class="text-[1.25rem]/tight font-semibold mb-5">
-                    Online GPS Tracking System
-                  </h4>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptatum dolores autem quidem odit beatae perspiciatis!
-                    Rem.
-                  </p>
-                </div>
-              </div>
-            </div>
+      <!-- GPS tracking -->
+      <div class="service-card">
+        <img src="{{asset('assets/images/avatar/GPStracking.jpg')}}" alt="gps tracking">
+        <h3>Online GPS Tracking System</h3>
+        <p>
+          ယာဉ်၏ တည်နေရာနှင့် သွားရာလမ်းကြောင်းကို အချိန်နှင့် တစ်ပြေးညီ ကြည့်ရှုနိုင်ခြင်း၊
 
-            <div class="scroll-revealed col-12 sm:col-6 lg:col-4">
-              <div class="group hover:-translate-y-1">
-               <div class="w-[70px] h-[70px] rounded-2xl mb-6 flex items-center justify-center bg-primary">
-              <img src="/images/icons/mapof.png" alt="Map Icon" class="w-8 h-8 object-contain" />
-              </div>
-                <div class="w-full">
-                  <h4 class="text-[1.25rem]/tight font-semibold mb-5">
-                    Tourist Maps
-                  </h4>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptatum dolores autem quidem odit beatae perspiciatis!
-                    Rem.
-                  </p>
-                </div>
-              </div>
-            </div>
+GPS တွင် Relay စနစ်ပါခြင်းကြောင့် ကား၏ လျှပ်စစ် Power စနစ်၊ Fuel စနစ်တို့ကို ဖြတ်တောက်နိုင်ခြင်း။
 
-            <div class="scroll-revealed col-12 sm:col-6 lg:col-4">
-              <div class="group hover:-translate-y-1">
-                <div
-                  class="w-[70px] h-[70px] rounded-2xl mb-6 flex items-center justify-center text-[37px]/none bg-primary text-primary-color"
-                >
-                  <i class="lni lni-layout"></i>
-                </div>
-                <div class="w-full">
-                  <h4 class="text-[1.25rem]/tight font-semibold mb-5">
-                   Map Plotting Services
-                  </h4>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptatum dolores autem quidem odit beatae perspiciatis!
-                    Rem.
-                  </p>
-                </div>
-              </div>
-            </div>
+Internet လိုင်း ပိချိန်၌ ပြတ်တောက်ထားမှုကို Internet ပြန် ရချိန်တွင် Data ကို Server ပေါ်သို့ပြန်တင်ပေးခြင်း။
+          <span class="dots">...</span>
+          <span class="more"> စက်ထဲမှ SIM Card ကို ဖုန်းခေါ်လိုက်ရုံဖြင့် ရောက်ရှိနေသာ Location SMS os Auto Reply
 
-            <div class="scroll-revealed col-12 sm:col-6 lg:col-4">
-              <div class="group hover:-translate-y-1">
-                <div
-                  class="w-[70px] h-[70px] rounded-2xl mb-6 flex items-center justify-center text-[37px]/none bg-primary text-primary-color"
-                >
-                  <i class="lni lni-layers"></i>
-                </div>
-                <div class="w-full">
-                  <h4 class="text-[1.25rem]/tight font-semibold mb-5">
-                    Printing Services
-                  </h4>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptatum dolores autem quidem odit beatae perspiciatis!
-                    Rem.
-                  </p>
-                </div>
-              </div>
-            </div>
+ວຽກ Total Mileage (km), Data p (Internet) Online osog Download လုပ်ယူနိုင်ခြင်း၊
 
-            <div class="scroll-revealed col-12 sm:col-6 lg:col-4">
-              <div class="group hover:-translate-y-1">
-                <div
-                  class="w-[70px] h-[70px] rounded-2xl mb-6 flex items-center justify-center text-[37px]/none bg-primary text-primary-color"
-                >
-                  <i class="lni lni-grid-alt"></i>
-                </div>
-                <div class="w-full">
-                  <h4 class="text-[1.25rem]/tight font-semibold mb-5">
-                    Yangon Map Book
-                  </h4>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptatum dolores autem quidem odit beatae perspiciatis!
-                    Rem.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+Real Time on MPT, Telenor, SIM Card များကို အသုံးပြုရခြင်း။
+
+ယာဉ်ပေါ်မှ အသံများကိုပြန်၍ကြားနိုင်သော Voice Service ပါဝင်ခြင်း။
+
+ 6 Volt Power Bank ဖြင့် ချိတ်ဆက် အသုံးပြုနိုင်ခြင်း။
+
+Speed သတ်မှတ်ပေးနိုင်ခြင်း၊ Route သတ်မှတ်ပေးနိုင်ခြင်း။
+
+ Online တွင် Playback ပြန်လည်ကြည့်ရှုနိုင်ခြင်း။
+
+ ACC / SOS နစ်များ ရရှိနိုင်ခြင်း။
+
+Interval Record သတ်မှတ်ပေးနိုင်ခြင်း။</span>
+        </p>
+        <button onclick="toggleReadMore(this)">Read more</button>
+      </div>
+
+      <!-- Tourist -->
+      <div class="service-card">
+        <img src="{{asset('assets/images/avatar/tourismap.jpg')}}" alt="tourist map">
+        <h3> Tourist Maps</h3>
+        <p>
+         အဓိကလုပ်ငန်းမှာ ဟိုတယ်နှင့် ခရီးသွားလာရေး ၀န်ကြီးဌာန၏ လမ်းညွှန်မှုဖြင့် Tourist Guide Map မြေပုံများကို မြန်မာနိုင်ငံသို့ နိုင်ငံခြားသားများ 
+                   ၀င်ရောက်မှုပေါ်တွင် အခြေခံလျက် နှစ်စဉ်လေးသိန်းနှစ်သောင်းကျော် ပုံနှိပ်၍ Tourist Industry အတွင်းအခမဲ့ ဖြန့်ချိသော လုပ်ငန်းဖြစ်ပါသည်။ 
+          <span class="dots">...</span>
+          <span class="more">  Tourist Guide Map (၇) မျိုးပေါင်း- ၃သန်းကျော်ကို ဖြန့်ချိ ပေးနိုင်ခဲ့ပြီ ဖြစ်ပါသည်။ အဆိုပါ မြေပုံများကို ၀န်ကြီးဌာနများနှင့် အစိုးရရုံးများ၊ 
+                   မြန်မာနိုင်ငံရှိနိုင်ငံတကာသံရုံးများ၊ နိုင်ငံခြားရှိ မြန်မာသံရုံးများ၊ အပြည်ပြည်ဆိုင်ရာ အဖွဲ့ အစည်းများ၊ လေကြောင်းလိုင်းများ နှင့် ညောင်ဦး) 
+                   လေဆိပ်များ နှင့် နှစ်စဉ်ကျင်းပ နေသော နိုင်ငံခြားမှ Travel Showများသို့ ပေးပို့ ၀ငှပေးနေပါသည်။
+၁၉၉၈ ခုနှစ်မှ စတင်၍ ရန်ကုန် မြေပုံစာအုပ် (The Map of Yangon-Street Directory)
+ကို ရန်ကုန်မြို့တော်စည်ပင်သာယာရေး ကော်မတီနှင့်ပူးပေါင်း၍(၄)ကြိမ်တိုင်တိုင် ထုတ်ဝေဖြန့်ချိနိုင်ခဲ့ပြီးဖြစ်ပါသည်။
+၂၀၀၂ခုနှစ်မှစတင်၍ရန်ကုန်မြို့တော်မြေပုံ ကို ပိုမို လွယ်ကူစွာအသုံးပြုနိုင်ရန်အတွက် မြို့နယ် တစ်မြို့ နယ် ချင်းစီအလိုက် သီးသန့်ပုံနှိပ်ထားသော(Township Maps of Yangon) ကို
+ ရန်ကုန်မြို့တော် စည်ပင်နှင့် ပူးပေါင်း၍ ထုတ်ဝေဖြန့်ချိနိုင်ခဲ့ပါသည်။</span>
+        </p>
+        <button onclick="toggleReadMore(this)">Read more</button>
+      </div>
+
+      <!-- Map Plotting -->
+      <div class="service-card">
+        <img src="{{asset('assets/images/avatar/printing.jpg')}}" alt="Map Plotting">
+        <h3> Map Plotting Services</h3>
+        <p>
+         လူကြီးမင်းတို့၏ ရုံးခန်း Meeting Room များ တွင် မြေပုံများကို တပ်ဆင်နိုင်ရန် Frame များ နှင့်ပါ လှပသေသပ်စွာ ဆောင်ရွက်ပေးနိုင်ပါ သည်။
+
+          <span class="dots">...</span>
+          <span class="more"> အဆိုပါမြေပုံများကို မိမိနှစ်သက်သော မြေပုံ ၊ လိုအပ်သောအရွယ်အစား၊ ကြိုက်နှစ်သက်သည့် Paper အမျိုးမျိုးနှင့် (ဥပမာ - Photo Paper Inkjet Paper Vinyl)p ကြည်လင်ပြတ်သားစွာ Plotting ထုတ်ပေးနိုင်ပါ သည်။</span>
+        </p>
+        <button onclick="toggleReadMore(this)">Read more</button>
+      </div>
+
+      <!-- Printing Services -->
+      <div class="service-card">
+        <img src="{{asset('assets/images/avatar/printing.jpg')}}" alt="Printing Services">
+        <h3> Printing Services</h3>
+        <p>
+          မြေပုံနှင့် တပါတည်း ကြော်ငြာ နိုင်သည့် ကိုယ်ပိုင်Guide Map များ
+
+လက်ကမ်းစာစောင်များကို ပြီးစီးသည် အထိတာပန်ယူဆောင်ရွက်ပေးလျက် ရှိပါသည်။
+          <span class="dots">...</span>
+          <span class="more"> မြေပုံ ပုံကြမ်းပေးပါက ပုံချောဖြစ်အောင် ရေးဆွဲပေးသည့် ၀န်ဆောင်မှု ကိုလည်း အထူး ပြုလုပ်ပေးလျက်ရှိပါသည်။ လက်ကမ်းစာတေင်များ
+
+(Flyer, Brochures) G (စားပွဲတင်၊ နံရံချိတ်၊ အိတ်ဆောင်)၊
+
+Post Card, New Year Card, Christmas Card Letter Head, Envelope Sticker Silk-Screen Printing-Cotton Banner, Board
+
+အမျိုးမျိုး၊ Sticker အမျိုးမျိုး၊ တီရှပ်များ၊ စပို့ရှပ်များ ပေါ်တွင် ကုမ္ပဏီ Logo ကြော်ငြာတံဆိပ် ရိုက်ခြင်း၊ ကုမ္ပဏီ Logo အမှတ်တံဆိပ်
+
+တီထွင်ရေးဆွဲပေးခြင်း တို့ကိုလည်း ပြုလုပ်ပေးလျက် ရှိပါသည်။</span>
+        </p>
+        <button onclick="toggleReadMore(this)">Read more</button>
+      </div>
+
+<!-- Yangon Map Book -->
+      <div class="service-card">
+        <img src="{{asset('assets/images/avatar/ygnmapbook.jpg')}}" alt="ybnmapbook">
+        <h3> Yangon Map Book</h3>
+        <p>
+          မြေပုံနှင့် တပါတည်း ကြော်ငြာ နိုင်သည့် ကိုယ်ပိုင်Guide Map များ
+
+လက်ကမ်းစာစောင်များကို ပြီးစီးသည် အထိတာပန်ယူဆောင်ရွက်ပေးလျက် ရှိပါသည်။
+          <span class="dots">...</span>
+          <span class="more"> မြေပုံ ပုံကြမ်းပေးပါက ပုံချောဖြစ်အောင် ရေးဆွဲပေးသည့် ၀န်ဆောင်မှု ကိုလည်း အထူး ပြုလုပ်ပေးလျက်ရှိပါသည်။ လက်ကမ်းစာတေင်များ
+
+(Flyer, Brochures) G (စားပွဲတင်၊ နံရံချိတ်၊ အိတ်ဆောင်)၊
+
+Post Card, New Year Card, Christmas Card Letter Head, Envelope Sticker Silk-Screen Printing-Cotton Banner, Board
+
+အမျိုးမျိုး၊ Sticker အမျိုးမျိုး၊ တီရှပ်များ၊ စပို့ရှပ်များ ပေါ်တွင် ကုမ္ပဏီ Logo ကြော်ငြာတံဆိပ် ရိုက်ခြင်း၊ ကုမ္ပဏီ Logo အမှတ်တံဆိပ်
+
+တီထွင်ရေးဆွဲပေးခြင်း တို့ကိုလည်း ပြုလုပ်ပေးလျက် ရှိပါသည်။</span>
+        </p>
+        <button onclick="toggleReadMore(this)">Read more</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+function toggleReadMore(btn) {
+  const card = btn.closest('.service-card');
+  const dots = card.querySelector('.dots');
+  const more = card.querySelector('.more');
+  
+  if (more.style.display === 'inline') {
+    more.style.display = 'none';
+    dots.style.display = 'inline';
+    btn.textContent = 'Read more';
+  } else {
+    more.style.display = 'inline';
+    dots.style.display = 'none';
+    btn.textContent = 'Read less';
+  }
+}
+</script>
+
+</body>
+
 
 
       <!-- Pricing section -->
@@ -879,34 +1002,18 @@
                 class="scroll-revealed bg-body-light-1 dark:bg-primary-dark-2 rounded-xl py-8 sm:py-12 px-6 sm:px-10 z-10 relative shadow-card-1 hover:shadow-lg"
               >
                 <div class="text-center max-w-[550px] mx-auto mb-12">
-                  <h6 class="mb-2 block text-lg font-semibold text-primary">
-                    Get in Touch
-                  </h6>
                   <h2 class="mb-3">Ready to Get Started</h2>
-                  <p>
-                    At vero eos et accusamus et iusto odio dignissimos ducimus
-                    quiblanditiis praesentium
-                  </p>
+      
                 </div>
 
                 <form action="#" method="POST" class="flex flex-col gap-6">
-                  <div class="row">
+                 
                     <div class="col-12 md:col-6">
                       <input
                         type="text"
                         name="name"
                         class="block w-full px-5 py-3 rounded-md border border-solid border-alpha-light dark:border-alpha-dark text-inherit text-base focus:border-primary"
                         placeholder="Name"
-                        required
-                      />
-                    </div>
-
-                    <div class="col-12 md:col-6">
-                      <input
-                        type="email"
-                        name="email"
-                        class="block w-full px-5 py-3 rounded-md border border-solid border-alpha-light dark:border-alpha-dark text-inherit text-base focus:border-primary"
-                        placeholder="Email"
                         required
                       />
                     </div>
@@ -951,7 +1058,7 @@
                         </button>
                       </div>
                     </div>
-                  </div>
+                  
                 </form>
               </div>
             </div>
@@ -961,9 +1068,18 @@
 
       <!-- Map section -->
       <section id="map" class="w-full h-[500px] overflow-hidden -mt-[12rem]">
-        <object
+        {{-- <object
           data="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1991.0094028113572!2d98.67188956289421!3d3.583155328672593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131cc1c3eb2fd%3A0x23d431c8a6908262!2sMedan%2C%20Kota%20Medan%2C%20Sumatera%20Utara!5e0!3m2!1sid!2sid!4v1723787393945!5m2!1sid!2sid"
           class="border-0 w-full h-full"
-        ></object>
+        ></object> --}}
+        <iframe
+  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3941.319202!2d98.6111!3d12.4402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2smm!4v1723888650000!5m2!1sen!2smm"
+  width="100%"
+  height="450"
+  style="border:0;"
+  allowfullscreen=""
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>
       </section>
     </main>
