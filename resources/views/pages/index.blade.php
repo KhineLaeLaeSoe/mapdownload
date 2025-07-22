@@ -25,7 +25,7 @@
                 <p
                   class="mx-auto mb-9 max-w-[600px] text-base text-primary-color sm:text-lg sm:leading-normal"
                 >
-                 Design Printing Service Co.,Ltd ကို ၁၉၉၅ ခုနှစ်မှာစတင်ဖွဲ့စည်းခဲ့ပြီး ၁၉၉၆ ခုနှစ်မှာတော့ ရန်ကုန်မြို့၏ အထင်ကရမြေပုံ ဖြစ်သည့် “ရန်ကုန်လမ်းညွန်မြေပုံ” ကို ထုတ်ဝေနိုင်ခဲ့ပါတယ်။ ဒီနေ့အချိန်အထိ Geographical Information System (GIS) နည်းပညာနှင့် Data warehouse များအသုံးပြုပြီး တိုင်းနှင့်ပြည်နယ်မြေပုံများ၊ ၂၀၂၂ ခရိုင်မြေပုံများ၊ မြို့နယ်အကွက်ချမြေပုံများကိုလည်း ဆက်လက်ရေးဆွဲထုတ်ဝေလျှက်ရှိပြီး UNESCO, American Embassy, India Embassy, ESRI, TomTom, HERE, GrabTaxi နှင့် အစိုးရဌာနများနှင့် လက်တွဲလုပ်ဆောင်ခဲ့ပြီး ယုံကြည်မှုရရှိထားသော မြန်မာနိုင်ငံ၏ မြေပုံနှင့် GIS ကုမ္ပဏီတစ်ခုလည်းဖြစ်ပါတယ်။
+                
                 </p>
 
                 <ul
@@ -156,16 +156,15 @@
                   aria-labelledby="tabs-list-history"
                 >
                   <p>
-                    It is a long established fact that a reader will be
-                    distracted by the readable content of a page when looking at
-                    its layout. The point of using Lorem Ipsum is that it has a
-                    more-or-less normal distribution of letters, look like
-                    readable English.
+                     Design Printing Service Co.,Ltd ကို ၁၉၉၅ ခုနှစ်မှာစတင်ဖွဲ့စည်းခဲ့ပြီး ၁၉၉၆ ခုနှစ်မှာတော့ 
+                     ရန်ကုန်မြို့၏ အထင်ကရမြေပုံ ဖြစ်သည့် “ရန်ကုန်လမ်းညွန်မြေပုံ” ကို ထုတ်ဝေနိုင်ခဲ့ပါတယ်။
                   </p>
                   <p>
-                    There are many variations of passages of Lorem Ipsum
-                    available, but the majority have in some form, by injected
-                    humour.
+                    ဒီနေ့အချိန်အထိ 
+                     Geographical Information System (GIS) နည်းပညာနှင့် Data warehouse များအသုံးပြုပြီး 
+                     တိုင်းနှင့်ပြည်နယ်မြေပုံများ၊ ၂၀၂၂ ခရိုင်မြေပုံများ၊ မြို့နယ်အကွက်ချမြေပုံများကိုလည်း ဆက်လက်ရေးဆွဲထုတ်ဝေလျှက်ရှိပြီး 
+                     UNESCO, American Embassy, India Embassy, ESRI, TomTom, HERE, GrabTaxi နှင့် အစိုးရဌာနများနှင့်
+                      လက်တွဲလုပ်ဆောင်ခဲ့ပြီး ယုံကြည်မှုရရှိထားသော မြန်မာနိုင်ငံ၏ မြေပုံနှင့် GIS ကုမ္ပဏီတစ်ခုလည်းဖြစ်ပါတယ်။
                   </p>
                 </div>
               </div>

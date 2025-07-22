@@ -130,7 +130,9 @@ button:hover, .btn:hover {
                 <p><span class="font-medium text-gray-600">Name:</span> {{ $payment->name }}</p>
                 <p><span class="font-medium text-gray-600">Email:</span> {{ $payment->email }}</p>
                 <p><span class="font-medium text-gray-600">Phone:</span> {{ $payment->phone }}</p>
+                <p><span class="font-medium text-gray-600">Map Title:</span> {{ $payment->map_title }}</p>
                 <p><span class="font-medium text-gray-600">Amount:</span> {{ $payment->amount }} MMK</p>
+                <p><span class="font-medium text-gray-600">Transaction No:</span> {{ $payment->transaction_no }}</p>
                 <p><span class="font-medium text-gray-600">Status:</span> 
                     <span class="{{ $payment->status == 'approved' ? 'text-green-600' : 'text-yellow-600' }}">
                         {{ ucfirst($payment->status) }}
@@ -160,9 +162,9 @@ button:hover, .btn:hover {
     {{-- Maps List --}}
     <div>
         <div class="flex justify-between items-center mb-4">
-            <h2 class="text-2xl font-semibold text-gray-800">🗺️ Maps List</h2>
+            <h2 class="text-2xl font-semibold text-gray-800"> Maps List</h2>
             <a href="{{ route('admin.maps.create') }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-                ➕ Upload New Map
+                 Upload New Map
             </a>
         </div>
 

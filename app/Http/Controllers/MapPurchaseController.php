@@ -14,6 +14,7 @@ class MapPurchaseController extends Controller
 {
     public function submitPayment(Request $request)
     {
+        // dd($request->all());
         // Form Submit လုပ်သော controller start
         // dd($request->all());
         //  $data = $request->validate([
@@ -33,11 +34,13 @@ class MapPurchaseController extends Controller
         // $payment = Payment::create($request->all());
         // dd($payment);
         $payment['amount'] = $request->amount;
+        $payment['map_title'] = $request->title;
         $payment['transaction_no'] = $request->transaction_no;
         if($payment['amount']){
             $payment['paid_at'] = now();
         }
         $payment->save();
+        // dd($payment);
         // dd($payment);
         if (!$payment) {
             return back()->withErrors(['error' => 'Payment submission failed. Please try again.']);
@@ -84,4 +87,5 @@ class MapPurchaseController extends Controller
 
         return Storage::download($purchase->pdf_file); // Make sure path is correct
     }
+    
 }

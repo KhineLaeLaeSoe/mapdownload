@@ -29,6 +29,24 @@ public function approve(Request $request, Payment $payment,$id)
     //  $filePath = 'https://dpsmap.com/assets/images/yangon/ahlone.jpg';
     $payment = Payment::findOrFail($id);
 
+    if($payment['map_title'] == 'Myeik Township')
+    {
+            // $path = public_path('test');
+        $filePath = public_path('assets/images/maps/Tanithary/Myeik.pdf');
+        
+        // dd($filePath);
+        // Dawei.pdf
+        
+    }
+ return response()->download($filePath, $payment->map_title . '.pdf')->deleteFileAfterSend(true);
+    // if($payment['map_title'] == 'Dawei Township')
+    // {
+    //         // $path = public_path('test');
+    //     $filePath = public_path('assets/images/maps/Tanithary/Dawei.pdf');
+    //     // dd($filePath);
+    //     // Dawei.pdf
+    // }
+
     $payment->update([
         'is_paid' => true,
         // 'pdf_file' => $path,
@@ -44,10 +62,16 @@ public function approve(Request $request, Payment $payment,$id)
     //             ->attach(storage_path('app/' . $filePath));
     // });
 
-      Mail::send('emails.download-link', ['payment' => $payment], function ($message) use ($payment) {
-            $message->to($payment->email) // ✅ Admin Email
-                ->subject('approved Map Payment with Image Attached');
-                // ->attach(storage_path('app/' . $filePath));
+    Mail::send('emails.download-link', ['payment' => $payment], function ($message) use ($payment, $filePath) {
+    $message->to($payment->email)
+        ->subject('Approved Map Payment with File')
+        ->attach($filePath);
+
+
+    //   Mail::send('emails.download-link', ['payment' => $payment], function ($message) use ($payment,$filePath) {
+    //         $message->to($payment->email) // ✅ Admin Email
+    //             ->subject('approved Map Payment with Image Attached');
+    //             ->attach($filePath);
     });
 
     // Email to customer
@@ -55,4 +79,6 @@ public function approve(Request $request, Payment $payment,$id)
 
     return back()->with('success', 'Payment approved and email sent!');
 }
-}
+
+
+} 

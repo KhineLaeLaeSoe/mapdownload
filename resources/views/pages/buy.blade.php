@@ -170,11 +170,21 @@
             </div>
         @endif
 
-         @if(request('title'))
+         {{-- @if(request('title') && $pdfFile)
         <div class="mb-4 p-4 bg-blue-100 rounded">
-            <strong>You are buying:</strong> {{ request('title') }}
+            <strong>You are buying:</strong> {{ request('title') && $pdfFile }}<br>
+            <a href="{{ asset('storage/maps/' . $pdfFile) }}" class="text-blue-600 underline" download>
         
+    @endif  --}}
+
+       @if(request('title'))
+        <div class="mb-4 p-4 bg-blue-100 rounded">
+            <strong>You are buying:</strong> {{ request('title') }}<br>
+            {{-- <a href="{{ asset('storage/maps/' . $pdfFile) }}" class="text-blue-600 underline" download> --}}
+              {{-- input type="hidden" name="title" value="{{ request('title') }}"> --}}
+              <input type="hidden" name="title" value="{{ request('title') }}">
     @endif 
+              
              
             <div>
                 <label for="name" class="block text-gray-700 text-sm font-semibold mb-2">Name:</label>

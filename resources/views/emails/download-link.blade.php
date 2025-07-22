@@ -80,16 +80,16 @@ Download Map
   <div class="container">
     <div class="header">
       <h2>Welcome onboard!</h2>
-      <p>မင်္ဂလာပါ {{ $payment->name }}၊</p>
+      <p>မင်္ဂလာပါ {{ $payment->name }}</p>
       <p>သင့် payment ကိုအတည်ပြုပြီးပါပြီ။ အောက်ပါလင့်ခ်မှ PDF ဖိုင်ကို download ပြုလုပ်နိုင်ပါသည်။</p>
-      <p><strong>Order Date:</strong> {{ $payment->created_at->format('Y-m-d H:i') }}</p>
+      <p><strong>Order Date:</strong> {{ $payment->created_at->format('d M Y H:i A') }}</p>
     </div>
 
     <div class="summary">
       <h3>Order Summary</h3>
       <p><strong>Customer Name:</strong> {{ $payment->name }}</p>
       <p><strong>Product:</strong> Map </p>
-      <p><strong>Map_title:</strong> {{ $payment->id }}</p>
+      <p><strong>Map_title:</strong> {{ $payment->map_title }}</p>
       <p><strong>Order ID:</strong> {{ $payment->id }}</p>
       <p><strong>Payment Status:</strong> {{ $payment->is_paid ? 'Approved' : 'Pending' }}</p>
       <p><strong>Amount:</strong> {{ $payment->amount }} MMK</p>
@@ -97,7 +97,7 @@ Download Map
 
     <p><strong>Payment Method:</strong> {{ $payment->payment_method }}</p><br>
 
-    <a href="#" class="download-btn">Download Receipt</a>
+    {{-- <a href="{{ asset('storage/maps/' . $payment->pdf_file) }}" class="download-btn">Download Receipt</a> --}}
 
     <div class="footer">
       <p>Need help? <a href="mailto:support@dpsmap.com">dpsmap.com</a> or call 09-775204020</p>
