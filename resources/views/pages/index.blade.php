@@ -21,31 +21,10 @@
                 >
                   Register to Download Maps and Buy Maps
                 </h1>
-
-                <p
-                  class="mx-auto mb-9 max-w-[600px] text-base text-primary-color sm:text-lg sm:leading-normal"
-                >
-                
-                </p>
-
-                <ul
-                  class="mb-10 flex flex-wrap items-center justify-center gap-4 md:gap-5"
-                >
-                  {{-- <li>
-                   <a href="{{ route('download.map') }}" class="btn btn-primary">
-     Download Free Maps
-                  </a>
-                  </li> --}}
-
-                  <li>
-                    <a
-                      href="{{ url('/buy-map') }}"
-                      class="video-popup flex items-center gap-4 rounded-md bg-primary-color/[0.15] px-5 py-3 text-base font-medium text-primary-color hover:bg-primary-color hover:text-primary md:px-7 md:py-[14px]"
-                      role="button"
-                      ><i class="lni lni-play text-lg/none"></i>Buy Map</a
-                    >
-                  </li>
-                </ul>
+                {{-- <a href="{{ url('/districts') }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+   Districts Maps
+</a> --}}
+        
                 </div>
               </div>
             </div>
@@ -60,7 +39,7 @@
             <div class="w-full">
               <figure class="scroll-revealed max-w-[480px] mx-auto">
                 <img
-                  src="{{ asset('public/assets/images/Aboutimg.jpg ')}}"
+                  src="{{ asset('./assets/images/mapplotting.jpg ')}}"
                   alt="About image"
                   class="rounded-xl"
                 />

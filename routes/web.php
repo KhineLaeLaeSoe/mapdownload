@@ -108,4 +108,6 @@ Route::get('download/map/{id}', [MapDownloadController::class, 'download']);
 //     return 'Email sent!';
 // });
  
-
+Route::get('/districts', function () {
+    return view('pages.districts'); // update the path if needed
+});

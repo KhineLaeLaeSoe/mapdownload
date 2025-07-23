@@ -13,15 +13,21 @@
         <a href="{{ asset('storage/' . $map->file_path) }}" download>Download</a>
     </div>
 @endforeach --}}
-<link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-
+{{-- <link rel="stylesheet" href="{{ asset('css/admin.css') }}"> --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Payments and Maps</title>
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 <style>
     .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
     font-family: "Segoe UI", sans-serif;
-    background-color: #f9fafb;
+    background-color: #2d73b8ff;
 }
 
 /* Headings */
@@ -117,7 +123,8 @@ button:hover, .btn:hover {
     font-weight: 500;
 }
 </style>
-
+</head>
+<body>
 <div class="container mx-auto p-6 space-y-8">
 
     {{-- Payments List --}}
@@ -204,3 +211,6 @@ button:hover, .btn:hover {
 
 </div>
 @endsection
+</script>
+</body>
+</html>

@@ -139,12 +139,12 @@
      <!-- Navbar -->
   <nav class="navbar">
     <div class="container">
-      <a href="/" class="logo">MyMaps</a>
+       <img src="{{ asset('assets/images/MD Logo.png') }}" alt="Maps Download Logo" style="height: 120px;">
+    </a>
+      <a href="/" class="logo">Maps Download</a>
       <ul class="nav-links" id="navLinks">
         <li><a href="/">Home</a></li>
         <li><a href="/maps" class="active">Maps</a></li>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/register">Register</a></li>
        
       </ul>
       <button id="menuToggle" class="menu-toggle">☰</button>

@@ -96,6 +96,8 @@ Download Map
      </div>
 
     <p><strong>Payment Method:</strong> {{ $payment->payment_method }}</p><br>
+    <p>Your map download is ready. This link is valid for 1 month and can be downloaded 3 times.</p>
+<a href="{{ route('map.download', $payment->id) }}">Download Now</a>
 
     {{-- <a href="{{ asset('storage/maps/' . $payment->pdf_file) }}" class="download-btn">Download Receipt</a> --}}
 

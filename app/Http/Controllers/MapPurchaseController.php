@@ -84,7 +84,26 @@ class MapPurchaseController extends Controller
         if ($purchase->status !== 'approved') {
             abort(403, 'Unauthorized to download this file.');
         }
+//-- Check if download is expired or limit reached --
+       // Check if download expired
+        if (now()->greaterThan($purchase->download_expires_at)) {
+        return response()->view('errors.download-expired', [], 403);
+    } // Check download count
+    if ($purchase->download_count >= $purchase->download_limit) {
+        return response()->view('errors.download-limit', [], 403);
+    }
+    // Determine file path (replace this with your map logic if needed)
+     $filePath = public_path($purchase->pdf_file); 
 
+     if (!file_exists($filePath)) {
+        return abort(404, 'File not found.');
+    }
+     // Increase download count
+    $purchase->increment('download_count');
+     // Serve the file
+//     return response()->download($filePath);
+// }
+//--end Check if download is expired or limit reached --
         return Storage::download($purchase->pdf_file); // Make sure path is correct
     }
     
