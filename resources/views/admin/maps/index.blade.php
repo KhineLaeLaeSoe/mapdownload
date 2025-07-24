@@ -2,6 +2,8 @@
 @section('title', 'Payments List')
 @section('content')
 
+
+
     {{-- <div class="container">
         <h2>Maps List</h2>
 
@@ -130,10 +132,11 @@ button:hover, .btn:hover {
     {{-- Payments List --}}
     <div>
         <h2 class="text-2xl font-semibold text-gray-800 mb-4"> Payments List</h2>
-
+   
         @foreach($payments as $payment)
         <div class="p-6 bg-white rounded-xl shadow-md space-y-3">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <p><span class="font-medium text-gray-600">id:</span> {{ $payment->id }}</p>
                 <p><span class="font-medium text-gray-600">Name:</span> {{ $payment->name }}</p>
                 <p><span class="font-medium text-gray-600">Email:</span> {{ $payment->email }}</p>
                 <p><span class="font-medium text-gray-600">Phone:</span> {{ $payment->phone }}</p>
@@ -150,14 +153,34 @@ button:hover, .btn:hover {
                     <img src="{{ asset('storage/' . $payment->payment_image) }}" alt="Payment proof" class="w-48 rounded-md border">
                 </div>
             </div>
+            {{-- @if($payment->download_count >= 3)
+
+            @endif --}}
+          
 
             @if($payment->status !== 'approved')
+              {{-- @if($payment->download_count >= 3)
+               <button type="button" class="bg-gray-400 text-white px-4 py-2 rounded cursor-not-allowed" disabled>
+                  ⛔ Download Limit Reached
+              </button>
+            @else --}}
             <form action="{{ route('admin.payments.approve', $payment->id) }}" method="POST">
                 @csrf
                 @method('PUT')
-                <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-                    ✅ Approve & Send Link
-                </button>
+                    {{-- {{$payment->download_count}} --}}
+                 {{-- @if($payment->download_count >= 3) --}}
+                @if ($payment->download_count >= $payment->download_limit)
+    <button type="submit" disabled class="bg-gray-400 text-white px-4 py-2 rounded cursor-not-allowed">
+        ⛔ Download Limit Reached
+    </button>
+@else
+    <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+        ✅ Approve & Send Link
+    </button>
+@endif
+
+
+                
             </form>
             @else
             <p class="text-green-700 font-medium">✔ Already approved.</p>

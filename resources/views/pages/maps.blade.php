@@ -373,7 +373,6 @@ body {
         <option value="ayeyarwady">Ayeyarwady Region </option>
         <option value="magway">Magway Region</option>
        
-
         <option value="chin">Chin State </option>
         <option value="kachin">Kachin State</option>
         <option value="kayah">Kayah State</option>
@@ -388,435 +387,62 @@ body {
  
 
   <!-- Yangon Section -->
-  <section id="yangonMaps" class="map-section hidden">
+  <section id="yangonMaps" class="map-section">
     <h2>Yangon Township Maps</h2>
     <div class="map-grid">
+      @foreach([
+        ['ahlone', 'Ahlone Township'],
+        ['bahan', 'Bahan Township'],
+        ['botahtaung', 'Botahtaung Township'],
+        ['dagon-seikkan', 'Dagon Seikkan Township'],
+        ['ahlone', 'Ahlone Township'],
+        ['dagon', 'Dagon Township'],
+        ['dala', 'Dala Township'],
+         ['daw-bon', 'Daw Bon Township'],
+        ['east-dagon', 'East-Dagon Township'],
+        ['hlaing-tharyar_east', 'Hlaing Tharyar(East) Township'],
+        ['hlaing-tharyar_west', 'Hlaing Tharyar(West) Township'],
+         ['hlaing', 'Hlaing Township'],
+        ['insein', 'Insein Township'],
+        ['kamaryut', 'Kamaryut Township'],
+        ['kyauk-tada', 'Kyauk Tada Township'],
+         ['kyi-myin-daing', 'Kyi Myin Daing Township'],
+        ['lanmadaw', 'Lanmadaw Township'],
+        ['latha', 'Latha Township'],
+        ['mayangone', 'Mayangone Township'],
+        ['mingalar-taung-nyunt', 'Mingalar Taung Nyunt Township'],
+        ['mingalardon', 'Mingalardon Township'],
+        ['north-dagon', 'North Dagon Township'],
+        ['north-okkalapa', 'North Okkalapa Township'],
+        ['pabedan', 'Pabedan Township'],
+        ['pazundaung', 'Pazundaung Township'],
+        ['sanchaung', 'Sanchaung Township'],
+         ['seikkan', 'Seikkan Township'],
+        ['seikkyi-khanaungto', 'Seikkyi Khanaung Township'],
+        ['shwe-pyi-thar', 'Shwe Pyi Thar Township'],
+        ['south-dagon', 'South Dagon Township'],
+         ['south-okkalapa', 'South Okkalapa Township'],
+        ['tarmwe', 'Tarmwe Township'],
+        ['thaketa', 'Thaketa Township'],
+        ['thanlyin', 'Thanlyin Township'],
+         ['thingangyun', 'Thingangyun Township'],
+
+      ] as [$file, $title])
       <div class="map-card">
-        <img src="{{ asset('assets/images/maps/Yangon/ahlone.jpg') }}" alt="Ahlone Township">
-        <div class="map-title">Ahlone Township</div>
+        <img src="{{ asset("assets/images/maps/Yangon/$file.jpg") }}" alt="{{ $title }}" onclick="openModal(this.src)">
+        <div class="map-title">{{ $title }}</div>
         <p>PDF Price: 300000</p>
-          <a href="{{ asset('assets/images/maps/Yangon/ahlone.jpg') }}" download="ahlone-map.jpg" class="btn-link">
-            Download 
-          </a>
-
-         <a href="{{ url('/buy?image=ahlone.pdf&title=Ahlone Township') }}">
-          Buy PDF
-         </a>
-     </div>
- 
-      <div class="map-card">
-             <img src="{{ asset('assets/images/maps/Yangon/bahan.jpg') }}" alt="Bahan Township">
-                  <div class="map-title">Bahan Township</div>
-                                      <p>PDF Price:300000</p>
-            <a href="{{ asset('assets/images/maps/Yangon/bahan.jpg') }}" download="bahan.jpg" class="btn-link">
-                                          Download 
-            </a>
-           <a href="{{ url('/buy?image=bahan.jpg&title=Bahan Township') }}">
-                                          Buy PDF
-           </a>
+        <a href="{{ asset("assets/images/maps/Yangon/$file.jpg") }}" download="{{ $file }}.jpg" class="btn-link">Download</a>
+        <a href="{{ url("/buy?image=$file.pdf&title=$title") }}" class="btn-link" style="background-color: green;">Buy PDF</a>
       </div>
-      <div class="map-card">
-               <img src="{{ asset('assets/images/maps/Yangon/dagon.jpg') }}" alt="Dagon Township">
-                  <div class="map-title">Dagon Township</div>
-                                       <p>PDF Price:300000</p>
-               <a href="{{ asset('assets/images/maps/Yangon/dagon.jpg') }}" download="dagon.jpg" class="btn-link">
-                                           Download 
-               </a>
-               <a href="{{ url('/buy?image=dagon.jpg&title=DagonTownship') }}">
-                                            Buy PDF
-              </a>
-      </div>
-
-      <div class="map-card">
-              <img src="{{ asset('assets/images/maps/Yangon/dagon-seikkan.jpg') }}" alt="Dagon Seikkan Township">
-                 <div class="map-title">Dagon Seikkan Township</div>
-                                     <p>PDF Price:300000</p>
-                 <a href="{{ asset('assets/images/maps/Yangon/dagon-seikkan.jpg') }}" download="dagon-seikkan.jpg" class="btn-link">
-                                         Download 
-                </a>
-                <a href="{{ url('/buy?image=dagon-seikkan.jpg&title=Dagon Seikkan Township') }}">
-                                          Buy PDF
-                </a>
-      </div>
-      </div><br><br>
-
-     <div class="map-grid">
-     <div class="map-card">
-               <img src="{{ asset('assets/images/maps/Yangon/daw-bon.jpg') }}" alt="Dawbon Township">
-                  <div class="map-title">Dawbon Township</div>
-                  <p>PDF Price: 300000</p>
-                <a href="{{ asset('assets/images/maps/Yangon/daw-bon.jpg') }}" download="daw-bon.jpg" class="btn-link">
-                            Download 
-                </a>
-
-                <a href="{{ url('/buy?image=dagon-daw-bon.jpg&title=Dawbon Township') }}">
-                             Buy PDF
-                </a>
-     </div>
-     <div class="map-card">
-               <img src="{{ asset('assets/images/maps/Yangon/east-dagon.jpg') }}" alt="East Dagon Township">
-                  <div class="map-title">East Dagon Township</div>
-                  <p>PDF Price:300000</p>
-                 <a href="{{ asset('assets/images/maps/Yangon/east-dagon.jpg') }}" download="east-dagon.jpg" class="btn-link">
-                   Download 
-                  </a>
-                  <a href="{{ url('/buy?image=east-dagon.jpg&title=East Dagon Township') }}">
-                   Buy PDF
-                  </a>
-      </div>
-      <div class="map-card">
-                 <img src="{{ asset('assets/images/maps/Yangon/hlaing-tharyar_east.jpg') }}" alt="Hlaing Tharyar Township">
-                  <div class="map-title">Hlaing Tharyar Township (East)</div>
-                  <p>PDF Price:300000</p>
-                  <a href="{{ asset('assets/images/maps/Yangon/hlaing-tharyar_east.jpg') }}" download="hlaing-tharyar_east.jpg" class="btn-link">
-                   Download 
-                  </a>
-                  <a href="{{ url('/buy?image=hlaing-tharyar_east.jpg&title=Hlaing Tharyar Township(East)') }}">
-                   Buy PDF
-                   </a>
-      </div>
-      <div class="map-card">
-                   <img src="{{ asset('assets/images/maps/Yangon/hlaing-tharyar_west.jpg') }}" alt="Hlaing Tharyar Township (West)">
-                   <div class="map-title">Hlaing Tharyar Township (West)</div>
-                   <p>PDF Price:300000</p>
-                   <a href="{{ asset('assets/images/maps/Yangon/hlaing-tharyar_west.jpg') }}" download="hlaing-tharyar_east.jpg" class="btn-link">
-                    Download 
-                  </a>
-                  <a href="{{ url('/buy?image=hlaing-tharyar_west.jpg&title=Hlaing Tharyar Township(West)') }}">
-                  Buy PDF
-                  </a>
-      </div>
+      @endforeach
     </div>
-<br><br>
-    <div class="map-grid">
-     <div class="map-card">
-               <img src="{{ asset('assets/images/maps/Yangon/kamaryut.jpg') }}" alt="Kamaryut Township">
-                  <div class="map-title">Kamaryut Township</div>
-                  <p>PDF Price: 300000</p>
-                <a href="{{ asset('assets/images/maps/Yangon/kamaryut.jpg') }}" download="kamaryut.jpg" class="btn-link">
-                            Download 
-                </a>
-
-                <a href="{{ url('/buy?image=kamaryut.pdf&title=KamaryutTownship') }}">
-                             Buy PDF
-                </a>
-     </div>
-     <div class="map-card">
-               <img src="{{ asset('assets/images/maps/Yangon/kyauk-tada.jpg') }}" alt="Kyauk-tada Township">
-                  <div class="map-title">Kyauk Tada Township</div>
-                  <p>PDF Price:300000</p>
-                 <a href="{{ asset('assets/images/maps/Yangon/kyauk-tada.jpg') }}" download="Kyauk-tada.jpg" class="btn-link">
-                   Download 
-                  </a>
-                  <a href="{{ url('/buy?image=kyauk-tada.pdf&title=East Kyauk-tada Township') }}">
-                   Buy PDF
-                  </a>
-      </div>
-      <div class="map-card">
-                 <img src="{{ asset('assets/images/maps/Yangon/kyi-myin-daing.jpg') }}" alt="Hlaing Tharyar Township">
-                  <div class="map-title">Kyee Myin Daing Township</div>
-                  <p>PDF Price:300000</p>
-                  <a href="{{ asset('assets/images/maps/Yangon/kyi-myin-daing.jpg') }}" download="kyi-myin-daing.jpg" class="btn-link">
-                   Download 
-                  </a>
-                  <a href="{{ url('/buy?image=hlaing-kyi-myin-daing.pff&title=Kyee Myin Daing Township') }}">
-                   Buy PDF
-                   </a>
-      </div>
-      <div class="map-card">
-                   <img src="{{ asset('assets/images/maps/Yangon/lanmadaw.jpg') }}" alt="Lanmadaw Township">
-                   <div class="map-title">Lanmadaw Township</div>
-                   <p>PDF Price:300000</p>
-                   <a href="{{ asset('assets/images/maps/Yangon/lanmadaw.jpg') }}" download="lanmadaw.jpg" class="btn-link">
-                    Download 
-                  </a>
-                  <a href="{{ url('/buy?image=lanmadaw.pdf&title=Lanmadaw Township') }}">
-                  Buy PDF
-                  </a>
-      </div>
-    </div><br><br>
-   
-    <div class="map-grid">
-     <div class="map-card">
-               <img src="{{ asset('assets/images/maps/Yangon/latha.jpg') }}" alt="Latha Township">
-                  <div class="map-title">Latha Township</div>
-                  <p>PDF Price: 300000</p>
-                <a href="{{ asset('assets/images/maps/Yangon/latha.jpg') }}" download="latha.jpg" class="btn-link">
-                            Download 
-                </a>
-
-                <a href="{{ url('/buy?image=latha.pdf&title=Latha Township') }}">
-                             Buy PDF
-                </a>
-     </div>
-     <div class="map-card">
-               <img src="{{ asset('assets/images/maps/Yangon/mayangone.jpg') }}" alt="Mayangone Township">
-                  <div class="map-title">Mayangone Township</div>
-                  <p>PDF Price:300000</p>
-                 <a href="{{ asset('assets/images/maps/Yangon/mayangone.jpg') }}" download="mayangone" class="btn-link">
-                   Download 
-                  </a>
-                  <a href="{{ url('/buy?image=mayangone.pdf&title=Mayangone Township') }}">
-                   Buy PDF
-                  </a>
-      </div>
-      <div class="map-card">
-                 <img src="{{ asset('assets/images/maps/Yangon/mingalardon.jpg') }}" alt="Mingalardon Township">
-                  <div class="map-title">Mingalardon Township</div>
-                  <p>PDF Price:300000</p>
-                  <a href="{{ asset('assets/images/maps/Yangon/mingalardon.jpg') }}" download="mingalardon.jpg" class="btn-link">
-                   Download 
-                  </a>
-                  <a href="{{ url('/buy?image=mingalardon.pdf&title=Mingalardon Township') }}">
-                   Buy PDF
-                   </a>
-      </div>
-      <div class="map-card">
-                   <img src="{{ asset('assets/images/maps/Yangon/north-dagon.jpg') }}" alt="North Dagon Township">
-                   <div class="map-title">North Dagon Township</div>
-                   <p>PDF Price:300000</p>
-                   <a href="{{ asset('assets/images/maps/Yangon/north-dagon.jpg') }}" download="north-dagon.jpg" class="btn-link">
-                    Download 
-                  </a>
-                  <a href="{{ url('/buy?image=north-dagon.pdf&title=North Dagon Township') }}">
-                  Buy PDF
-                  </a>
-      </div>
-     </div> <br><br>
-
-      <div class="map-grid">
-     <div class="map-card">
-               <img src="{{ asset('assets/images/maps/Yangon/north-okkalapa.jpg') }}" alt="North Okkalapa Township">
-                  <div class="map-title">North Okkalapa Township</div>
-                  <p>PDF Price: 300000</p>
-                <a href="{{ asset('assets/images/maps/Yangon/north-okkalapa.jpg') }}" download="north-okkalapa.jpg" class="btn-link">
-                            Download 
-                </a>
-
-                <a href="{{ url('/buy?image=north-okkalapa.pdf&title=North Okkalapa Township') }}">
-                             Buy PDF
-                </a>
-     </div>
-     <div class="map-card">
-               <img src="{{ asset('assets/images/maps/Yangon/pabedan.jpg') }}" alt="Pabedan Township">
-                  <div class="map-title">Pabedan Township</div>
-                  <p>PDF Price:300000</p>
-                 <a href="{{ asset('assets/images/maps/Yangon/pabedan.jpg') }}" download="pabedan.jpg" class="btn-link">
-                   Download 
-                  </a>
-                  <a href="{{ url('/buy?image=pabedan.pdf&title=Pabedan Township') }}">
-                   Buy PDF
-                  </a>
-      </div>
-      <div class="map-card">
-                 <img src="{{ asset('assets/images/maps/Yangon/sanchaung.jpg') }}" alt="Sanchaung Township">
-                  <div class="map-title">Sanchaung Township</div>
-                  <p>PDF Price:300000</p>
-                  <a href="{{ asset('assets/images/maps/Yangon/sanchaung.jpg') }}" download="sanchaung.jpg" class="btn-link">
-                   Download 
-                  </a>
-                  <a href="{{ url('/buy?image=sanchaung.pdf&title=Sanchaung Township') }}">
-                   Buy PDF
-                   </a>
-      </div>
-      <div class="map-card">
-                   <img src="{{ asset('assets/images/maps/Yangon/shwe-pyi-thar.jpg') }}" alt="Shwe Pyi Tharr Township">
-                   <div class="map-title">Shwe Pyi Thar Township</div>
-                   <p>PDF Price:300000</p>
-                   <a href="{{ asset('assets/images/maps/Yangon/shwe-pyi-thar.jpg') }}" download="shwe-pyi-thar.jpg" class="btn-link">
-                    Download 
-                  </a>
-                  <a href="{{ url('/buy?image=shwe-pyi-thar.pdf&title=Shwe Pyi Thar Township') }}">
-                  Buy PDF
-                  </a>
-      </div>
-     </div> <br><br>
-
-      <div class="map-grid">
-     <div class="map-card">
-               <img src="{{ asset('assets/images/maps/Yangon/south-dagon.jpg') }}" alt="South Dagon Township">
-                  <div class="map-title">South Dagon Township</div>
-                  <p>PDF Price: 300000</p>
-                <a href="{{ asset('assets/images/maps/Yangon/south-dagon.jpg') }}" download="south-dagon.jpg" class="btn-link">
-                            Download 
-                </a>
-
-                <a href="{{ url('/buy?image=south-dagon.pdf&title=South Dagon Township') }}">
-                             Buy PDF
-                </a>
-     </div>
-     <div class="map-card">
-               <img src="{{ asset('assets/images/maps/Yangon/tarmwe.jpg') }}" alt="Tarmwe Township">
-                  <div class="map-title">Tarmwe Township</div>
-                  <p>PDF Price:300000</p>
-                 <a href="{{ asset('assets/images/maps/Yangon/tarmwe.jpg') }}" download="tarmwe.jpg" class="btn-link">
-                   Download 
-                  </a>
-                  <a href="{{ url('/buy?image=tarmwe.pdf&title=Tarmwe Township') }}">
-                   Buy PDF
-                  </a>
-      </div>
-      <div class="map-card">
-                 <img src="{{ asset('assets/images/maps/Yangon/thaketa.jpg') }}" alt="Thaketa Township">
-                  <div class="map-title">Thaketa Township</div>
-                  <p>PDF Price:300000</p>
-                  <a href="{{ asset('assets/images/maps/Yangon/thaketa.jpg') }}" download="thaketa.jpg" class="btn-link">
-                   Download 
-                  </a>
-                  <a href="{{ url('/buy?image=thaketa.pdf&title=Thaketa Township') }}">
-                   Buy PDF
-                   </a>
-      </div>
-      <div class="map-card">
-                   <img src="{{ asset('assets/images/maps/Yangon/thingangyun.jpg') }}" alt="Thingangyun Township (West)">
-                   <div class="map-title">Thingangyun Township </div>
-                   <p>PDF Price:300000</p>
-                   <a href="{{ asset('assets/images/maps/Yangon/thingangyun.jpg') }}" download="thingangyun.jpg" class="btn-link">
-                    Download 
-                  </a>
-                  <a href="{{ url('/buy?image=thingangyun.pdf&title=Thingangyun Township') }}">
-                  Buy PDF
-                  </a>
-      </div>
-     </div> <br><br>
-
-     <div class="map-grid">
-     <div class="map-card">
-               <img src="{{ asset('assets/images/maps/Yangon/yankin.jpg') }}" alt="Yankin Township">
-                  <div class="map-title">Yankin Township</div>
-                  <p>PDF Price: 300000</p>
-                <a href="{{ asset('assets/images/maps/Yangon/yankin.jpg') }}" download="yankin.jpg" class="btn-link">
-                            Download 
-                </a>
-
-                <a href="{{ url('/buy?image=yankin.pdf&title=Yankin Township') }}">
-                             Buy PDF
-                </a>
-     </div>
-     <div class="map-card">
-               <img src="{{ asset('assets/images/maps/Yangon/south-okkalapa.jpg') }}" alt="South Okkalapa Township">
-                  <div class="map-title">South Okkalapa Township</div>
-                  <p>PDF Price:300000</p>
-                 <a href="{{ asset('assets/images/maps/Yangon/south-okkalapa.jpg') }}" download="south-okkalapa.jpg" class="btn-link">
-                   Download 
-                  </a>
-                  <a href="{{ url('/buy?image=south-okkalapa.pdf&title=South Okkalapa Township') }}">
-                   Buy PDF
-                  </a>
-      </div>
-      <div class="map-card">
-                 <img src="{{ asset('assets/images/maps/Yangon/thanlyin.jpg') }}" alt="Thanlyin Township">
-                  <div class="map-title">Thanlyin Township</div>
-                  <p>PDF Price:300000</p>
-                  <a href="{{ asset('assets/images/maps/Yangon/thanlyin.jpg') }}" download="thanlyin.jpg" class="btn-link">
-                   Download 
-                  </a>
-                  <a href="{{ url('/buy?image=thanlyin.pdf&title=Thanlyin Township') }}">
-                   Buy PDF
-                   </a>
-      </div>
-      <div class="map-card">
-                   <img src="{{ asset('assets/images/maps/Yangon/botahtaung.jpg') }}" alt="Botahtaung Township (West)">
-                   <div class="map-title">Botahtaung Township </div>
-                   <p>PDF Price:300000</p>
-                   <a href="{{ asset('assets/images/maps/Yangon/botahtaung.jpg') }}" download="botahtaung.jpg" class="btn-link">
-                    Download 
-                  </a>
-                  <a href="{{ url('/buy?image=botahtaung.pdf&title=Botahtaung Township') }}">
-                  Buy PDF
-                  </a>
-      </div>
-     </div> <br><br>
-
-      <div class="map-grid">
-     <div class="map-card">
-               <img src="{{ asset('assets/images/maps/Yangon/dala.jpg') }}" alt="Dala Township">
-                  <div class="map-title">Dala Township</div>
-                  <p>PDF Price: 300000</p>
-                <a href="{{ asset('assets/images/maps/Yangon/dala.jpg') }}" download="dala.jpg" class="btn-link">
-                            Download 
-                </a>
-
-                <a href="{{ url('/buy?image=dala.pdf&title=Dala Township') }}">
-                             Buy PDF
-                </a>
-     </div>
-     <div class="map-card">
-               <img src="{{ asset('assets/images/maps/Yangon/hlaing.jpg') }}" alt="Hlaing Township">
-                  <div class="map-title">Hlaing Township</div>
-                  <p>PDF Price:300000</p>
-                 <a href="{{ asset('assets/images/maps/Yangon/hlaing.jpg') }}" download="hlaing.jpg" class="btn-link">
-                   Download 
-                  </a>
-                  <a href="{{ url('/buy?image=hlaing.pdf&title=Hlaing Township') }}">
-                   Buy PDF
-                  </a>
-      </div>
-      <div class="map-card">
-                 <img src="{{ asset('assets/images/maps/Yangon/mingalar-taung-nyunt.jpg') }}" alt="Mingalar Taung Nyunt">
-                  <div class="map-title">Mingalar Taung Nyunt Township</div>
-                  <p>PDF Price:300000</p>
-                  <a href="{{ asset('assets/images/maps/Yangon/mingalar-taung-nyunt.jpg') }}" download="mingalar-taung-nyunt.jpg" class="btn-link">
-                   Download 
-                  </a>
-                  <a href="{{ url('/buy?image=mingalar-taung-nyunt.pdf&title=Mingalar Taung Nyunt') }}">
-                   Buy PDF
-                   </a>
-      </div>
-      <div class="map-card">
-                   <img src="{{ asset('assets/images/maps/Yangon/pazundaung.jpg') }}" alt="Pazundaung Township">
-                   <div class="map-title">Pazundaung Township </div>
-                   <p>PDF Price:300000</p>
-                   <a href="{{ asset('assets/images/maps/Yangon/pazundaung.jpg') }}" download="pazundaung.jpg" class="btn-link">
-                    Download 
-                  </a>
-                  <a href="{{ url('/buy?image=pazundaung.pdf&title=Pazundaung Township') }}">
-                  Buy PDF
-                  </a>
-      </div>
-     </div> <br><br>
-
-      <div class="map-grid">
-     <div class="map-card">
-               <img src="{{ asset('assets/images/maps/Yangon/seikkan.jpg') }}" alt="Seikkan Township">
-                  <div class="map-title">Seikkan Township</div>
-                  <p>PDF Price: 300000</p>
-                <a href="{{ asset('assets/images/maps/Yangon/seikkan.jpg') }}" download="seikkan.jpg" class="btn-link">
-                            Download 
-                </a>
-
-                <a href="{{ url('/buy?image=seikkan.pdf&title=Seikkan Township') }}">
-                             Buy PDF
-                </a>
-     </div>
-     <div class="map-card">
-               <img src="{{ asset('assets/images/maps/Yangon/seikkyi-khanaungto.jpg') }}" alt="Seikkyi Khanaungto Township">
-                  <div class="map-title">Seikkyi Khanaungto Township</div>
-                  <p>PDF Price:300000</p>
-                 <a href="{{ asset('assets/images/maps/Yangon/seikkyi-khanaungto.jpg') }}" download="seikkyi-khanaungto.jpg" class="btn-link">
-                   Download 
-                  </a>
-                  <a href="{{ url('/buy?image=seikkyi-khanaungto.pdf&title=Seikkyi Khanaungto Township') }}">
-                   Buy PDF
-                  </a>
-      </div>
-      <div class="map-card">
-                 <img src="{{ asset('assets/images/maps/Yangon/insein.jpg') }}" alt="Insein Township">
-                  <div class="map-title">Insein Township</div>
-                  <p>PDF Price:300000</p>
-                  <a href="{{ asset('assets/images/maps/Yangon/insein.jpg') }}" download="insein.jpg" class="btn-link">
-                   Download 
-                  </a>
-                  <a href="{{ url('/buy?image=insein.pdf&title=Insein Township') }}">
-                   Buy PDF
-                   </a>
-      </div>
-     </div> <br><br>
-  </section>
+</section> 
 <!--Yangon Section End-->
-    <!-- Tanithary Section Start-->
-     <section id="tanitharyMaps" class="map-section">
-    <h2>Tanintharyi Township Maps</h2>
+
+<!-- Tanithary Section Start-->
+  <section id="tanitharyMaps" class="map-section">
+    <h2>Tanintharyi District Maps</h2>
     <div class="map-grid">
       @foreach([
         ['Dawei', 'Dawei Township'],
@@ -853,108 +479,135 @@ body {
       document.getElementById('imageModal').style.display = "none";
     }
   </script>
-
-   <!-- Tanithary Section End-->
+<!-- Tanithary Section End-->
  
-  
-
    <!-- Mandalay Section -->
   <section id="mandalayMaps" class="map-section hidden">
     <h2>Mandalay Township Maps</h2>
     <div class="map-grid">
+      @foreach([
+        ['aungmyaytarzan', 'Aung Myay Thazan Map'],
+        ['chan-aye-thazan', 'Chan Aye Thazan Map'],
+        ['chan-mya-thazi', 'Chan Mya Thazi Map'],
+        ['maha-aung-myay', 'Maha Aung Myay Map'],
+        ['pyi-gyi-tagon', 'Pyi Gyi Tagon Map'],
+        ['amarapura', 'Amarapura Map'],
+        ['pathe', 'Patheingyi Map'],
+      ] as [$file, $title])
       <div class="map-card">
-        <img src="public\assets\img\maps\free\ahlone.jpg" alt="Ahlone Township">
-        <div class="map-title">Ahlone Township</div>
+        <img src="{{ asset("assets/images/maps/Madalay/$file.jpg") }}" alt="{{ $title }}" onclick="openModal(this.src)">
+        <div class="map-title">{{ $title }}</div>
+        <p>PDF Price: 300000</p>
+        <a href="{{ asset("assets/images/maps/Madalay/$file.jpg") }}" download="{{ $file }}.jpg" class="btn-link">Download</a>
+        <a href="{{ url("/buy?image=$file.pdf&title=$title") }}" class="btn-link" style="background-color: green;">Buy PDF</a>
       </div>
-      <div class="map-card">
-        <img src="maps/yangon/bahan.jpg" alt="Bahan Township">
-        <div class="map-title">Bahan Township</div>
-      </div>
+      @endforeach
     </div>
-  </section>
+</section> 
 
   <!-- Sagaing Section -->
   <section id="sagaingMaps" class="map-section hidden">
-    <h2>Sagaing Township Maps</h2>
+    <h2>Sagaing District Maps</h2>
     <div class="map-grid">
+      @foreach([
+        ['Hkamti', 'ခန္တီးခရိုင် မြေပုံ'],
+        ['Homaline', 'ဟုမ္မလင်းခရိုင် မြေပုံ'],
+        ['Kale', 'ကလေးခရိုင် မြေပုံ'],
+        ['Katha', 'ကသာခရိုင် မြေပုံ'],
+        ['Kawlin', 'ကောလင်းခရိုင် မြေပုံ'],
+        ['Mawlaik', 'မော်လိုက်ခရိုင် မြေပုံ'],
+        ['Monywas', 'မုံရွာခရိုင် မြေပုံ'],
+        ['Naga_Self_Administrated', 'နာဂကိုယ်ပိုင်အုပ်ချုပ်ခွင့်ရဒေသ မြေပုံ'],
+        ['Sagaing_Region', 'စစ်ကိုင်းခရိုင် မြေပုံ'],
+        ['ShweBo', 'ရွှေဘိုခရိုင် မြေပုံ'],
+        ['Tamu', 'တမူးခရိုင် မြေပုံ'],
+        ['YeU', 'ရေဦးခရိုင် မြေပုံ'],
+        ['Yinmarbin', 'ယင်းမာပင်ခရိုင် မြေပုံ'],
+        ['Kanbalu', 'ကန့်ဘလူခရိုင် မြေပုံ'],
+      ] as [$file, $title])
       <div class="map-card">
-        <img src="public\assets\img\maps\free\ahlone.jpg" alt="Ahlone Township">
-        <div class="map-title">Ahlone Township</div>
-        <p>Price: Free</p>
-          <a href="maps/sample-map.pdf" download class="btn-link">Download</a>
-         <a href="{{ url('/buy-map') }}"
-                 class="font-semibold px-5 py-2 rounded-md text-body-light-11 dark:text-body-dark-11 hover:bg-primary hover:text-primary-color focus:bg-primary focus:text-primary-color">
-                 Buy PDF
-             </a>
+        <img src="{{ asset("assets/images/maps/Sagaing/$file.jpg") }}" alt="{{ $title }}" onclick="openModal(this.src)">
+        <div class="map-title">{{ $title }}</div>
+        <p>PDF Price: 300000</p>
+        <a href="{{ asset("assets/images/maps/Sagaing/$file.jpg") }}" download="{{ $file }}.jpg" class="btn-link">Download</a>
+        <a href="{{ url("/buy?image=$file.pdf&title=$title") }}" class="btn-link" style="background-color: green;">Buy PDF</a>
       </div>
-      <div class="map-card">
-        <img src="public\assets\img\maps\free\bahan.jpg" alt="Bahan Township">
-        <div class="map-title">Bahan Township</div>
-        <p>Price: Free</p>
-          <a href="maps/sample-map.pdf" download class="btn-link">Download</a>
-         <a href="{{ url('/buy-map') }}"
-                 class="font-semibold px-5 py-2 rounded-md text-body-light-11 dark:text-body-dark-11 hover:bg-primary hover:text-primary-color focus:bg-primary focus:text-primary-color">
-                 Buy PDF
-             </a>
-      </div>
+      @endforeach
     </div>
+</section>  
+
+   <!-- Magway Section -->
+  <section id="magwayMaps" class="map-section hidden">
+    <h2>Magway  Maps</h2>
+     <div class="map-grid">
+      @foreach([
+        ['Chauk', 'ချောက်ခရိုင် မြေပုံ'],
+        ['Aunglan', 'အောင်လံခရိုင် မြေပုံ'],
+        ['Gangaw', 'ဂန့်ဂေါခရိုင် မြေပုံ'],
+        ['Magways', 'မကွေးခရိုင် မြေပုံ'],
+        ['Minbu', 'မင်းဘူးခရိုင် မြေပုံ'],
+        ['Pakokku', 'ပခုက္ကူခရိုင် မြေပုံ'],
+        ['Thayet', 'သရက်ခရိုင် မြေပုံ'],
+      
+      ] as [$file, $title])
+      <div class="map-card">
+        <img src="{{ asset("assets/images/maps/Magway/$file.jpg") }}" alt="{{ $title }}" onclick="openModal(this.src)">
+        <div class="map-title">{{ $title }}</div>
+        <p>PDF Price: 300000</p>
+        <a href="{{ asset("assets/images/maps/Magway/$file.jpg") }}" download="{{ $file }}.jpg" class="btn-link">Download</a>
+        <a href="{{ url("/buy?image=$file.pdf&title=$title") }}" class="btn-link" style="background-color: green;">Buy PDF</a>
+      </div>
+      @endforeach
+    </div>
+</section>  
+
+  <!-- Ayeyarwady Region Section -->
+  <section id="ayeyarwadyMaps" class="map-section hidden">
+    <h2>Ayeyarwady District Maps</h2>
+     <div class="map-grid">
+      @foreach([
+        ['Pathein', 'ပုသိမ်ခရိုင်'],
+        ['Kyon_Pyaw', 'ကျုံပျော်ခရိုင်'],
+        ['Hinthada', 'ဟင်္သာတခရိုင်'],
+        ['Myan_Aung', 'မြန်အောင်ခရိုင်'],
+        ['Maubin', 'မအူပင်ခရိုင်'],
+        ['Coming Soon', 'မြောင်းမြခရိုင်'],
+        ['Coming Soon', 'သရက်ခရိုင် မြေပုံ'],
+        ['Coming Soon', 'လပွတ္တာခရိုင်'],
+      
+      ] as [$file, $title])
+      <div class="map-card">
+        <img src="{{ asset("assets/images/maps/Ayeyawady/$file.jpg") }}" alt="{{ $title }}" onclick="openModal(this.src)">
+        <div class="map-title">{{ $title }}</div>
+        <p>PDF Price: 300000</p>
+        <a href="{{ asset("assets/images/maps/Ayeyawady/$file.jpg") }}" download="{{ $file }}.jpg" class="btn-link">Download</a>
+        <a href="{{ url("/buy?image=$file.pdf&title=$title") }}" class="btn-link" style="background-color: green;">Buy PDF</a>
+      </div>
+      @endforeach
+       
   </section>
 
    <!-- Bago Section -->
   <section id="bagoMaps" class="map-section hidden">
-    <h2>Bago Township Maps</h2>
-    <div class="map-grid">
+    <h2>Bago District Maps</h2>
+      <div class="map-grid">
+      @foreach([
+        ['Bago', 'ပုသိမ်ခရိုင်'],
+        ['Nattalin', 'ကျုံပျော်ခရိုင်'],
+        ['Nyaunglebin', 'ဟင်္သာတခရိုင်'],
+        ['Pyay', 'မြန်အောင်ခရိုင်'],
+        ['Taungoo', 'မအူပင်ခရိုင်'],
+        ['Thayarwady', 'မြောင်းမြခရိုင်'],
+      
+      ] as [$file, $title])
       <div class="map-card">
-        <img src="public\assets\img\maps\free\ahlone.jpg" alt="Ahlone Township">
-        <div class="map-title">Ahlone Township</div>
+        <img src="{{ asset("assets/images/maps/Bago/$file.jpg") }}" alt="{{ $title }}" onclick="openModal(this.src)">
+        <div class="map-title">{{ $title }}</div>
+        <p>PDF Price: 300000</p>
+        <a href="{{ asset("assets/images/maps/Bago/$file.jpg") }}" download="{{ $file }}.jpg" class="btn-link">Download</a>
+        <a href="{{ url("/buy?image=$file.pdf&title=$title") }}" class="btn-link" style="background-color: green;">Buy PDF</a>
       </div>
-      <div class="map-card">
-        <img src="maps/yangon/bahan.jpg" alt="Bahan Township">
-        <div class="map-title">Bahan Township</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Yangon Section -->
-  <section id="yangonMaps" class="map-section hidden">
-    <h2>Yangon District Maps</h2>
-    <div class="map-grid">
-      <div class="map-card">
-        <img src="public\assets\img\maps\free\ahlone.jpg" alt="Ahlone Township">
-        <div class="map-title">Ahlone Township</div>
-        <p>Price: Free</p>
-          <a href="maps/sample-map.pdf" download class="btn-link">Download</a>
-         <a href="{{ url('/buy-map') }}"
-                 class="font-semibold px-5 py-2 rounded-md text-body-light-11 dark:text-body-dark-11 hover:bg-primary hover:text-primary-color focus:bg-primary focus:text-primary-color">
-                 Buy PDF
-             </a>
-      </div>
-      <div class="map-card">
-        <img src="public\assets\img\maps\free\bahan.jpg" alt="Bahan Township">
-        <div class="map-title">Bahan Township</div>
-        <p>Price: Free</p>
-          <a href="maps/sample-map.pdf" download class="btn-link">Download</a>
-         <a href="{{ url('/buy-map') }}"
-                 class="font-semibold px-5 py-2 rounded-md text-body-light-11 dark:text-body-dark-11 hover:bg-primary hover:text-primary-color focus:bg-primary focus:text-primary-color">
-                 Buy PDF
-             </a>
-      </div>
-    </div>
-  </section>
-
-   <!-- Mandalay Section -->
-  <section id="mandalayMaps" class="map-section hidden">
-    <h2>Mandalay District Maps</h2>
-    <div class="map-grid">
-      <div class="map-card">
-        <img src="public\assets\img\maps\free\ahlone.jpg" alt="Ahlone Township">
-        <div class="map-title">Ahlone Township</div>
-      </div>
-      <div class="map-card">
-        <img src="maps/yangon/bahan.jpg" alt="Bahan Township">
-        <div class="map-title">Bahan Township</div>
-      </div>
-    </div>
+      @endforeach
   </section>
 
   <!-- Sagaing Section -->

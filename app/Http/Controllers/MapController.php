@@ -19,17 +19,7 @@ class MapController extends Controller
         } else {
             $maps = Map::all();
         }
-
-
-
-
-
-
-
-        
-    // $maps = Map::all(); // ဒါက database ထဲက map list အားလုံးကိုယူတယ်
-
-    return view('admin.maps.index', compact('maps'));
+        return view('admin.maps.index', compact('maps'));
         // return view('pages.maps');
     }
     // mapHome

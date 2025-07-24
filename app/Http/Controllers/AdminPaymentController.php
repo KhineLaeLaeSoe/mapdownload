@@ -20,7 +20,7 @@ public function index()
 
 public function approve(Request $request, Payment $payment,$id)
 {
-    
+    // dd('sd');
     $payment = Payment::findOrFail($id);
 
     // if($payment['map_title'] == 'Myeik Township')
@@ -91,8 +91,21 @@ $filePath = $mapFiles[$mapTitle];
         // 'pdf_file' => $path,
         'paid_at' => now(),
         'status' => 'approved',
+        // 'download_count' => 1,
         'download_expires_at' => now()->addMonth(), // ← expires in 1 month
     ]);
+
+    
+    if($payment){
+        $payment->download_count += 1;
+        // dd($payment);
+        // dd($payment->download_count);
+    }
+
+    $payment->save();
+
+    
+
 
     // dd($payment->emai);
 
@@ -102,17 +115,18 @@ $filePath = $mapFiles[$mapTitle];
     //             ->attach(storage_path('app/' . $filePath));
     // });
 
+    // true 
     Mail::send('emails.download-link', ['payment' => $payment], function ($message) use ($payment, $filePath) {
     $message->to($payment->email)
         ->subject('Approved Map Payment with File')
         ->attach($filePath);
 
+    });
 
     //   Mail::send('emails.download-link', ['payment' => $payment], function ($message) use ($payment,$filePath) {
     //         $message->to($payment->email) // ✅ Admin Email
     //             ->subject('approved Map Payment with Image Attached');
     //             ->attach($filePath);
-    });
 
     // Email to customer
     // Mail::to($payment->email)->send(new SendDownloadLink($payment));
