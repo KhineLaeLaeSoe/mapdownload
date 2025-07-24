@@ -102,8 +102,10 @@ Download Map
     {{-- <a href="{{ asset('storage/maps/' . $payment->pdf_file) }}" class="download-btn">Download Receipt</a> --}}
 
     <div class="footer">
-      <p>Need help? <a href="mailto:support@dpsmap.com">dpsmap.com</a> or call 09-775204020</p>
-      <p>Follow us: <a href="#">Facebook</a>, <a href="#">Viber</a></p>
+      <h2>Download Link Expired</h2>
+      <p>This link has expired. Please contact support if you need help. 
+        <a href="dpsmap@gmail.com">dpsmap.com</a> or call 09-775204020</p>
+      <p>Follow us: <a href="facebook.com/DPSMyanmar">Facebook</a>, <a href="#">Viber</a></p>
       <p>Don't want to receive these emails? <a href="#">Unsubscribe</a></p>
     </div>
   </div>

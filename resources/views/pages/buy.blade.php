@@ -1,295 +1,125 @@
-<!-- resources/views/payment-form.blade.php -->
- {{-- @extends('layouts.temp')
-@section('title', 'Maps Page') --}}
-
-  {{-- @push('meta')
-    <meta name="keyword" content="Map download">
-    <meta name="description" content="jpg,pdf maps download">
-@endpush --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to the Map Download Service</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    
-/* Navbar */
-.navbar {
-  background-color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.navbar .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 0;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #1e3a8a;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-links a {
-  color: #333;
-  padding-bottom: 4px;
-  border-bottom: 2px solid transparent;
-  transition: all 0.3s;
-}
-
-.nav-links a:hover,
-.nav-links .active {
-  color: #1d4ed8;
-  border-color: #1d4ed8;
-}
-
-.menu-toggle {
-  display: none;
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-}
-
-/* Responsive Menu */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background: #fff;
-    padding: 1rem;
-    border-top: 1px solid #eee;
+  <title>Buy Map</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<style>
+  @keyframes marquee {
+    0%   { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
   }
 
-  .nav-links.show {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-}
-
-/* Header */
-.page-header {
-  text-align: center;
-  padding: 3rem 1rem 2rem;
-}
-
-.page-header h1 {
-  font-size: 2.5rem;
-  color: #0f172a;
-}
-
-.page-header p {
-  color: #64748b;
-  margin-top: 0.5rem;
-}
-
-@media (max-width: 768px) {
-    .form-container {
-      padding: 1rem;
-    }
-    input, select {
-      font-size: 1rem;
-    }
-  }
-
-  label {
-    font-weight: 500;
-    margin-bottom: 0.25rem;
-    display: block;
-  }
-
-  input[type="file"] {
-    border: 1px solid #d1d5db;
-    border-radius: 0.375rem;
-    padding: 0.5rem;
-    margin-top: 0.25rem;
-    width: 100%;
-  }
-
-  button[type="submit"] {
-    background-color: #1d4ed8;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    border-radius: 0.5rem;
-    transition: background-color 0.3s ease;
-  }
-
-  button[type="submit"]:hover {
-    background-color: #2563eb;
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+    will-change: transform;
   }
 </style>
 </head>
-<body>
-     <!-- Navbar -->
-  <nav class="navbar">
-    <div class="container">
-       <img src="{{ asset('assets/images/MD Logo.png') }}" alt="Maps Download Logo" style="height: 120px;">
-    </a>
-      <a href="/" class="logo">Maps Download</a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="/">Home</a></li>
-        <li><a href="/maps" class="active">Maps</a></li>
-       
-      </ul>
-      <button id="menuToggle" class="menu-toggle">☰</button>
+<body class="bg-gray-100">
+<nav class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+        <a href="javascript:history.back()" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+          <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+               xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          Back
+        </a>
+        <a href="{{ url('/') }}" class="text-blue-600 hover:text-blue-800 font-medium">Home</a>
+      </div>
+      <div>
+        <span class="text-gray-600 font-semibold">Map Purchase</span>
+      </div>
     </div>
+    <div class="bg-yellow-100 text-yellow-800 py-2 px-4 overflow-hidden whitespace-nowrap relative">
+  <div class="animate-marquee inline-block">
+   📢 "ကျေးဇူးပြုပြီး ဖောင်တွင် အချက်အလက်အားလုံးကို မှန်ကန်စွာဖြည့်ပြီး ပေးချေမှုအထောက်အထားဓာတ်ပုံကို တင်သွင်းရန် မမေ့ပါနှင့်။pdf file ဝယ်ယူမှုအတွက် ကျေးဇူးအထူးတင်ရှိပါသည်။
+  </div>
+</div>
   </nav>
-<header class="page-header">
-    <h2>Welcome to the Map Download Service</h2>
-   
-  </header>
-  <!-- Payment Form UI -->
-<div class="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-        <marquee behavior="scroll" direction="left" style="color blue" scrollamount="5" class="text-blue-700 font-medium mb-4">
-    📢 "ကျေးဇူးပြုပြီး ဖောင်တွင် အချက်အလက်အားလုံးကို မှန်ကန်စွာဖြည့်ပြီး ပေးချေမှုအထောက်အထားဓာတ်ပုံကို တင်သွင်းရန် မမေ့ပါနှင့်။pdf file ဝယ်ယူမှုအတွက် ကျေးဇူးအထူးတင်ရှိပါသည်။
-</marquee>
-       
+  <br>
+
+  <div class="pt-20 min-h-screen flex items-center justify-center p-4">
     
-        <form method="POST" action="{{ route('buyMap') }}" class="space-y-5" enctype="multipart/form-data">
-            @csrf
-             @if (session('success'))
-            <div class="bg-green-100 text-green-800 p-4 rounded mb-4" style="text-align: center;background-color: #000000ff; color: #f7fff9ff;">
-                {{ session('success') }}
-            </div>
-        @endif
+  <div class="bg-white rounded-xl shadow-md w-full max-w-lg p-4 border border-gray-200">
+    <h2 class="text-xl font-semibold text-center text-blue-700 mb-4">Buy Map Form</h2>
 
-         {{-- @if(request('title') && $pdfFile)
-        <div class="mb-4 p-4 bg-blue-100 rounded">
-            <strong>You are buying:</strong> {{ request('title') && $pdfFile }}<br>
-            <a href="{{ asset('storage/maps/' . $pdfFile) }}" class="text-blue-600 underline" download>
-        
-    @endif  --}}
+    <form method="POST" action="{{ route('buyMap') }}" class="space-y-4" enctype="multipart/form-data">
+      @csrf
 
-       @if(request('title'))
-        <div class="mb-4 p-4 bg-blue-100 rounded">
-            <strong>You are buying:</strong> {{ request('title') }}<br>
-            {{-- <a href="{{ asset('storage/maps/' . $pdfFile) }}" class="text-blue-600 underline" download> --}}
-              {{-- input type="hidden" name="title" value="{{ request('title') }}"> --}}
-              <input type="hidden" name="title" value="{{ request('title') }}">
-    @endif 
-              
-             
-            <div>
-                <label for="name" class="block text-gray-700 text-sm font-semibold mb-2">Name:</label>
-                <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    required
-                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Enter your name"
-                >
-            </div>
-            <div class="col-md-6">
-                <label for="name" class="block text-gray-700 text-sm font-semibold mb-2">Email:</label>
-                    <input id="email"
-                         type="email"
-                         class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Enter your email"
-                    @error('email') is-invalid 
-                    @enderror name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+      @if (session('success'))
+        <div class="text-center p-3 rounded bg-green-600 text-white text-sm">
+          {{ session('success') }}
+        </div>
+      @endif
 
-                     @error('email')
-                         <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                     @enderror
-            </div>
+      @if(request('title'))
+        <div class="bg-blue-100 text-blue-800 p-2 rounded text-center text-sm">
+          <strong>You are buying:</strong> {{ request('title') }}
+          <input type="hidden" name="title" value="{{ request('title') }}">
+        </div>
+      @endif
 
-            <div>
-                <label for="phone" class="block text-gray-700 text-sm font-semibold mb-2">Phone:</label>
-                <input
-                    type="text"
-                    name="phone"
-                    id="phone"
-                    required
-                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Enter your phone number"
-                >
-            </div>
+      <div>
+        <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+        <input type="text" name="name" id="name" required placeholder="Your name"
+          class="mt-1 block w-full rounded-md border px-3 py-1.5 border-gray-300 focus:ring-2 focus:ring-blue-500">
+      </div>
 
-           <div>
-             <label for="transaction_no" class="block text-gray-700 text-sm font-semibold mb-2">
-               Enter Transaction No. (Last 6 digits):
-            </label>
-      <input
-        type="number"
-        name="transaction_no"
-        id="transaction_no"
-        required
-        maxlength="6"
-        inputmode="numeric"
-        pattern="\d{6}"
-        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-        placeholder="e.g. 123456"
-        title="Please enter exactly 6 digits" >
-     </div>
-   <div>
-    <label for="amount" class="block text-gray-700 text-sm font-semibold mb-2">
-        Enter Top-up Amount:
-    </label>
-    <input
-        type="number"
-        name="amount"
-        id="amount"
-        required
-        min="100"
-        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-        placeholder="e.g. 1500"
-    >
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+        <input type="email" name="email" id="email" value="{{ old('email') }}" required placeholder="Email"
+          class="mt-1 block w-full rounded-md border px-3 py-1.5 border-gray-300 focus:ring-2 focus:ring-blue-500">
+        @error('email')
+          <span class="text-red-500 text-xs">{{ $message }}</span>
+        @enderror
+      </div>
+
+      <div>
+        <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
+        <input type="text" name="phone" id="phone" required placeholder="Phone"
+          class="mt-1 block w-full rounded-md border px-3 py-1.5 border-gray-300 focus:ring-2 focus:ring-blue-500">
+      </div>
+
+      <div>
+        <label for="transaction_no" class="block text-sm font-medium text-gray-700">Transaction No.</label>
+        <input type="number" name="transaction_no" id="transaction_no" maxlength="6" required placeholder="Last 6 digits"
+          class="mt-1 block w-full rounded-md border px-3 py-1.5 border-gray-300 focus:ring-2 focus:ring-blue-500">
+      </div>
+
+      <div>
+        <label for="amount" class="block text-sm font-medium text-gray-700">Top-up Amount</label>
+        <input type="number" name="amount" id="amount" min="100" required placeholder="Amount"
+          class="mt-1 block w-full rounded-md border px-3 py-1.5 border-gray-300 focus:ring-2 focus:ring-blue-500">
+      </div>
+
+      <div>
+        <label for="payment_method" class="block text-sm font-medium text-gray-700">Payment Method</label>
+        <select name="payment_method" id="payment_method" required
+          class="mt-1 block w-full rounded-md border px-3 py-1.5 bg-white border-gray-300 focus:ring-2 focus:ring-blue-500">
+          <option value="kbzpay">KBZPay</option>
+          <option value="wavepay">WavePay</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="file" class="block text-sm font-medium text-gray-700">Payment Image</label>
+        <input type="file" name="file" required
+          class="mt-1 block w-full rounded-md border px-3 py-1.5 bg-white border-gray-300 focus:ring-2 focus:ring-blue-500">
+      </div>
+
+      <div class="text-center">
+        <button type="submit"
+          class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-5 py-1.5 rounded-md shadow-sm text-sm">
+          Continue to Pay
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
 
-
-            <div>
-                <label for="payment_method" class="block text-gray-700 text-sm font-semibold mb-2">Payment Method:</label>
-                <select
-                    name="payment_method"
-                    id="payment_method"
-                    required
-                    class="w-full px-4 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
-                    <option value="kbzpay">KBZPay</option>
-                    <option value="wavepay">WavePay</option>
-                </select>
-            </div>
-            <br>
-            <div>
-                <label for="file">Payment Image:</label>
-               <input type="file" name="file" required><br>
-            </div><br>
-
-            <button
-                type="submit"
-                 class="font-semibold px-5 py-2 rounded-md text-body-light-11 dark:text-body-dark-11 hover:bg-primary hover:text-primary-color focus:bg-primary focus:text-primary-color"
-            >
-                Continue to Pay
-            </button>
-            
-            </button>
-            {{-- <button
-              type="button"
-              class="font-semibold px-5 py-2 rounded-md text-body-light-11 dark:text-body-dark-11 hover:bg-primary hover:text-primary-color focus:bg-primary focus:text-primary-color"
-              data-filter="marketing"
-            > --}}
-        </form>
-    </div>
-    </div>
-</div>
-</section>
+</body>
+</html>

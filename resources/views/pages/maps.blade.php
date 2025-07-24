@@ -136,7 +136,116 @@ a {
   font-size: 1rem;
 }
 
-.map-section {
+body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      padding: 40px;
+    }
+
+    .map-section {
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      margin-bottom: 60px;
+    }
+
+    .map-section h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+
+    .map-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .map-card {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 16px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .map-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .map-card img {
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 10px;
+      transition: 0.3s ease;
+    }
+
+    .map-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 10px 0 5px;
+      color: #333;
+    }
+
+    .map-card p {
+      margin: 5px 0;
+      color: #666;
+    }
+
+    .btn-link {
+      display: inline-block;
+      margin: 6px;
+      padding: 6px 12px;
+      font-size: 14px;
+      text-decoration: none;
+      border-radius: 4px;
+      background-color: #3498db;
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-link:hover {
+      background-color: #2980b9;
+    }
+
+    /* Modal preview */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.85);
+    }
+
+    .modal-content {
+      display: block;
+      margin: 60px auto;
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 8px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: red;
+    }
+    .map-section {
   padding: 2rem 1rem;
 }
 
@@ -223,7 +332,6 @@ a {
   @apply inline-block mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition;
 }
 
-}
 </style>
 </head>
 <body>
@@ -256,7 +364,7 @@ a {
     <div class="container">
       <input type="text" placeholder="🔍 Search map title..." class="search-input" />
       <select id="citySelect" class="city-select">
-        <option value="">-- Choose City --</option>
+        <option value="">-- Choose Region/State--</option>
         <option value="yangon">Yangon  Region</option>
         <option value="tanithary">Tanithary Region </option>
         <option value="mandalay">Mandalay Region</option>
@@ -707,56 +815,45 @@ a {
   </section>
 <!--Yangon Section End-->
     <!-- Tanithary Section Start-->
-     <section id="tanitharyMaps" class="map-section hidden">
-    <h2>Tanithary Township Maps</h2>
+     <section id="tanitharyMaps" class="map-section">
+    <h2>Tanintharyi Township Maps</h2>
     <div class="map-grid">
-     <div class="map-card">
-               <img src="{{ asset('assets/images/maps/Tanithary/Dawei.jpg') }}" alt="Dawei Township">
-                  <div class="map-title">Dawei Township</div>
-                  <p>PDF Price: 300000</p>
-                <a href="{{ asset('assets/images/maps/Tanithary/Dawei.jpg') }}" download="Dawei.jpg" class="btn-link">
-                            Download 
-                </a>
-
-                <a href="{{ url('/buy?image=Dawei.pdf&title=Dawei Township') }}">
-                             Buy PDF
-                </a>
-     </div>
-     <div class="map-card">
-               <img src="{{ asset('assets/images/maps/Tanithary/Myeik.jpg') }}" alt="Myeik Township">
-                  <div class="map-title">Myeik Township</div>
-                  <p>PDF Price:300000</p>
-                 <a href="{{ asset('assets/images/maps/Tanithary/Myeik.jpg') }}" download="Myeik.jpg" class="btn-link">
-                   Download 
-                  </a>
-                  <a href="{{ url('/buy?image=Myeik.pdf&title=Myeik Township') }}">
-                   Buy PDF
-                  </a>
-      </div>
+      @foreach([
+        ['Dawei', 'Dawei Township'],
+        ['Myeik', 'Myeik Township'],
+        ['Bokpyin', 'Bokpyin Township'],
+        ['Kawthoung', 'Kawthoung Township'],
+      ] as [$file, $title])
       <div class="map-card">
-                 <img src="{{ asset('assets/images/maps/Tanithary/Bokpyin.jpg') }}" alt="Bokpyin Township">
-                  <div class="map-title">Bokpyin Township</div>
-                  <p>PDF Price:300000</p>
-                  <a href="{{ asset('assets/images/maps/Tanithary/Bokpyin.jpg') }}" download="Bokpyin.jpg" class="btn-link">
-                   Download 
-                  </a>
-                  <a href="{{ url('/buy?image=Bokpyin.pdf&title=Bokpyin') }}">
-                   Buy PDF
-                   </a>
+        <img src="{{ asset("assets/images/maps/Tanithary/$file.jpg") }}" alt="{{ $title }}" onclick="openModal(this.src)">
+        <div class="map-title">{{ $title }}</div>
+        <p>PDF Price: 300000</p>
+        <a href="{{ asset("assets/images/maps/Tanithary/$file.jpg") }}" download="{{ $file }}.jpg" class="btn-link">Download</a>
+        <a href="{{ url("/buy?image=$file.pdf&title=$title") }}" class="btn-link" style="background-color: green;">Buy PDF</a>
       </div>
-      <div class="map-card">
-                   <img src="{{ asset('assets/images/maps/Tanithary/Kawthoung.jpg') }}" alt="Kawthoung Township">
-                   <div class="map-title">Kawthoung Township</div>
-                   <p>PDF Price:300000</p>
-                   <a href="{{ asset('assets/images/maps/Tanithary/Kawthoung.jpg') }}" download="Kawthoung.jpg" class="btn-link">
-                    Download 
-                  </a>
-                  <a href="{{ url('/buy?image=Kawthoung.pdf&title=Kawthoung Township') }}">
-                  Buy PDF
-                  </a>
-      </div>
+      @endforeach
     </div>
   </section>
+
+  <!-- Image Modal -->
+  <div id="imageModal" class="modal" onclick="closeModal()">
+    <span class="close" onclick="closeModal()">×</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+
+  <script>
+    function openModal(src) {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImage');
+      modal.style.display = "block";
+      modalImg.src = src;
+    }
+
+    function closeModal() {
+      document.getElementById('imageModal').style.display = "none";
+    }
+  </script>
+
    <!-- Tanithary Section End-->
  
   

@@ -657,171 +657,110 @@ function toggleReadMore(btn) {
 
 
       <!-- Testimonials section -->
-      <section id="testimonials" class="section-area">
-        <div class="container">
-          <div class="scroll-revealed text-center max-w-[550px] mx-auto mb-12">
-            <h6 class="mb-2 block text-lg font-semibold text-primary">
-              Client Reviews
-            </h6>
-            <h2 class="mb-6">Our Testimonials</h2>
-            <p>
-              There are many variations of passages of Lorem Ipsum available but
-              the majority have suffered alteration in some form.
-            </p>
-          </div>
+<section id="regionMaps" class="section-area py-12 bg-gray-50">
+  <div class="container">
+    <div class="text-center max-w-xl mx-auto mb-12">
+      <h2 class="text-2xl font-bold text-primary mb-2">Myanmar Region and State Maps</h2>
+      <p class="text-gray-600">Explore all Regions and States of Myanmar with visual map previews</p>
+    </div>
 
-          <div
-            class="swiper testimonial-carousel common-carousel scroll-revealed"
-          >
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div
-                  class="rounded-xl bg-body-light-1 dark:bg-body-dark-12/10 px-5 py-8 shadow-card-2 sm:px-8"
-                >
-                  <p
-                    class="mb-6 text-base text-body-light-11 dark:text-body-dark-11"
-                  >
-                    "Our members are so impressed. It's intuitive. It's clean.
-                    It's distraction free. If you're building a community."
-                  </p>
-                  <figure class="flex items-center gap-4">
-                    <div class="h-[50px] w-[50px] overflow-hidden">
-                      <img
-                        src="./assets/img/avatar/avatar-4.jpg"
-                        alt="Testimonial picture"
-                        class="h-full w-full rounded-full object-cover"
-                      />
-                    </div>
-                    <figcaption class="flex-grow">
-                      <h3
-                        class="text-sm font-semibold text-body-light-11 dark:text-body-dark-11"
-                      >
-                        Ralf Nacht
-                      </h3>
-                      <p
-                        class="text-xs text-body-light-10 dark:text-body-dark-10"
-                      >
-                        Web Entrepreneur
-                      </p>
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
+   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+  <!-- Ayeyarwady -->
+  <div class="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden text-center p-4">
+    <img src="{{ asset('assets/images/maps/myanmarrsmap/ayeyarwaddy_m.jpg') }}" alt="Ayeyarwady Region" class="w-full h-64 object-contain rounded-md mb-4">
+    <h3 class="text-lg font-semibold text-gray-800">Ayeyarwady Region</h3>
+  </div>
 
-              <div class="swiper-slide">
-                <div
-                  class="rounded-xl bg-body-light-1 dark:bg-body-dark-12/10 px-5 py-8 shadow-card-2 sm:px-8"
-                >
-                  <p
-                    class="mb-6 text-base text-body-light-11 dark:text-body-dark-11"
-                  >
-                    "Our members are so impressed. It's intuitive. It's clean.
-                    It's distraction free. If you're building a community."
-                  </p>
-                  <figure class="flex items-center gap-4">
-                    <div class="h-[50px] w-[50px] overflow-hidden">
-                      <img
-                        src="./assets/img/avatar/avatar-5.jpg"
-                        alt="Testimonial picture"
-                        class="h-full w-full rounded-full object-cover"
-                      />
-                    </div>
-                    <figcaption class="flex-grow">
-                      <h3
-                        class="text-sm font-semibold text-body-light-11 dark:text-body-dark-11"
-                      >
-                        Sebastian Toft
-                      </h3>
-                      <p
-                        class="text-xs text-body-light-10 dark:text-body-dark-10"
-                      >
-                        Web Developer
-                      </p>
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
+  <!-- Bago -->
+  <div class="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden text-center p-4">
+    <img src="{{ asset('assets/images/maps/myanmarrsmap/bago_m.jpg') }}" alt="Bago Region" class="w-full h-64 object-contain rounded-md mb-4">
+    <h3 class="text-lg font-semibold text-gray-800">Bago Region</h3>
+  </div>
 
-              <div class="swiper-slide">
-                <div
-                  class="rounded-xl bg-body-light-1 dark:bg-body-dark-12/10 px-5 py-8 shadow-card-2 sm:px-8"
-                >
-                  <p
-                    class="mb-6 text-base text-body-light-11 dark:text-body-dark-11"
-                  >
-                    "Our members are so impressed. It's intuitive. It's clean.
-                    It's distraction free. If you're building a community."
-                  </p>
-                  <figure class="flex items-center gap-4">
-                    <div class="h-[50px] w-[50px] overflow-hidden">
-                      <img
-                        src="./assets/img/avatar/avatar-6.jpg"
-                        alt="Testimonial picture"
-                        class="h-full w-full rounded-full object-cover"
-                      />
-                    </div>
-                    <figcaption class="flex-grow">
-                      <h3
-                        class="text-sm font-semibold text-body-light-11 dark:text-body-dark-11"
-                      >
-                        Bao Shen
-                      </h3>
-                      <p
-                        class="text-xs text-body-light-10 dark:text-body-dark-10"
-                      >
-                        UI/UX Designer
-                      </p>
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
+  <!-- Kachin -->
+  <div class="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden text-center p-4">
+    <img src="{{ asset('assets/images/maps/myanmarrsmap/kachin_m.jpg') }}" alt="Kachin State" class="w-full h-64 object-contain rounded-md mb-4">
+    <h3 class="text-lg font-semibold text-gray-800">Kachin State</h3>
+  </div>
 
-              <div class="swiper-slide">
-                <div
-                  class="rounded-xl bg-body-light-1 dark:bg-body-dark-12/10 px-5 py-8 shadow-card-2 sm:px-8"
-                >
-                  <p
-                    class="mb-6 text-base text-body-light-11 dark:text-body-dark-11"
-                  >
-                    "Our members are so impressed. It's intuitive. It's clean.
-                    It's distraction free. If you're building a community."
-                  </p>
-                  <figure class="flex items-center gap-4">
-                    <div class="h-[50px] w-[50px] overflow-hidden">
-                      <img
-                        src="./assets/img/avatar/avatar-7.jpg"
-                        alt="Testimonial picture"
-                        class="h-full w-full rounded-full object-cover"
-                      />
-                    </div>
-                    <figcaption class="flex-grow">
-                      <h3
-                        class="text-sm font-semibold text-body-light-11 dark:text-body-dark-11"
-                      >
-                        Emanuel Velzeboer
-                      </h3>
-                      <p
-                        class="text-xs text-body-light-10 dark:text-body-dark-10"
-                      >
-                        Graphics Designer
-                      </p>
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
-            </div>
+  <!-- Kayah -->
+  <div class="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden text-center p-4">
+    <img src="{{ asset('assets/images/maps/myanmarrsmap/kayah_m.jpg') }}" alt="Kayah State" class="w-full h-64 object-contain rounded-md mb-4">
+    <h3 class="text-lg font-semibold text-gray-800">Kayah State</h3>
+  </div>
 
-            <div class="mt-[60px] flex items-center justify-center gap-1">
-              <div class="swiper-button-prev">
-                <i class="lni lni-arrow-left"></i>
-              </div>
-              <div class="swiper-button-next">
-                <i class="lni lni-arrow-right"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+  <!-- Kayin -->
+  <div class="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden text-center p-4">
+    <img src="{{ asset('assets/images/maps/myanmarrsmap/kayin_m.jpg') }}" alt="Kayin State" class="w-full h-64 object-contain rounded-md mb-4">
+    <h3 class="text-lg font-semibold text-gray-800">Kayin State</h3>
+  </div>
+
+  <!-- Chin -->
+  <div class="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden text-center p-4">
+    <img src="{{ asset('assets/images/maps/myanmarrsmap/chin_m.jpg') }}" alt="Chin State" class="w-full h-64 object-contain rounded-md mb-4">
+    <h3 class="text-lg font-semibold text-gray-800">Chin State</h3>
+  </div>
+
+  <!-- Mandalay -->
+  <div class="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden text-center p-4">
+    <img src="{{ asset('assets/images/maps/myanmarrsmap/mandalay_m.jpg') }}" alt="Mandalay Region" class="w-full h-64 object-contain rounded-md mb-4">
+    <h3 class="text-lg font-semibold text-gray-800">Mandalay Region</h3>
+  </div>
+
+  <!-- Magway -->
+  <div class="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden text-center p-4">
+    <img src="{{ asset('assets/images/maps/myanmarrsmap/magway_m.jpg') }}" alt="Magway Region" class="w-full h-64 object-contain rounded-md mb-4">
+    <h3 class="text-lg font-semibold text-gray-800">Magway Region</h3>
+  </div>
+
+  <!-- Mon -->
+  <div class="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden text-center p-4">
+    <img src="{{ asset('assets/images/maps/myanmarrsmap/mon_m.jpg') }}" alt="Mon State" class="w-full h-64 object-contain rounded-md mb-4">
+    <h3 class="text-lg font-semibold text-gray-800">Mon State</h3>
+  </div>
+
+  <!-- Rakhine -->
+  <div class="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden text-center p-4">
+    <img src="{{ asset('assets/images/maps/myanmarrsmap/rakhine_m.jpg') }}" alt="Rakhine State" class="w-full h-64 object-contain rounded-md mb-4">
+    <h3 class="text-lg font-semibold text-gray-800">Rakhine State</h3>
+  </div>
+
+  <!-- Sagaing -->
+  <div class="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden text-center p-4">
+    <img src="{{ asset('assets/images/maps/myanmarrsmap/sagaing_m.jpg') }}" alt="Sagaing Region" class="w-full h-64 object-contain rounded-md mb-4">
+    <h3 class="text-lg font-semibold text-gray-800">Sagaing Region</h3>
+  </div>
+
+  <!-- Shan -->
+  <div class="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden text-center p-4">
+    <img src="{{ asset('assets/images/maps/myanmarrsmap/shan_m.jpg') }}" alt="Shan State" class="w-full h-64 object-contain rounded-md mb-4">
+    <h3 class="text-lg font-semibold text-gray-800">Shan State</h3>
+  </div>
+
+  <!-- Tanintharyi -->
+  <div class="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden text-center p-4">
+    <img src="{{ asset('assets/images/maps/myanmarrsmap/tanintharyi_m.jpg') }}" alt="Tanintharyi Region" class="w-full h-64 object-contain rounded-md mb-4">
+    <h3 class="text-lg font-semibold text-gray-800">Tanintharyi Region</h3>
+  </div>
+
+  <!-- Yangon -->
+  <div class="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden text-center p-4">
+    <img src="{{ asset('assets/images/maps/myanmarrsmap/yangon_m.jpg') }}" alt="Yangon Region" class="w-full h-64 object-contain rounded-md mb-4">
+    <h3 class="text-lg font-semibold text-gray-800">Yangon Region</h3>
+  </div>
+
+  <!-- Nay Pyi Taw -->
+  <div class="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden text-center p-4">
+    <img src="{{ asset('assets/images/maps/myanmarrsmap/naypyitaw_m.jpg') }}" alt="Nay Pyi Taw Union Territory" class="w-full h-64 object-contain rounded-md mb-4">
+    <h3 class="text-lg font-semibold text-gray-800">Nay Pyi Taw</h3>
+  </div>
+</div>
+
+
+      <!-- Add more regions/states as needed -->
+    </div>
+  </div>
+</section>
 
       <!-- Clients section -->
       <section id="clients" class="section-area">
@@ -1050,10 +989,10 @@ function toggleReadMore(btn) {
           data="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1991.0094028113572!2d98.67188956289421!3d3.583155328672593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131cc1c3eb2fd%3A0x23d431c8a6908262!2sMedan%2C%20Kota%20Medan%2C%20Sumatera%20Utara!5e0!3m2!1sid!2sid!4v1723787393945!5m2!1sid!2sid"
           class="border-0 w-full h-full"
         ></object> --}}
-        <iframe
-  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3941.319202!2d98.6111!3d12.4402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2smm!4v1723888650000!5m2!1sen!2smm"
+  <iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6343723.066219126!2d92.17285189840595!3d21.1997382912887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30cbeb3f37b0f0ab%3A0xc168dc5ee2f77217!2sMyanmar%20(Burma)!5e0!3m2!1sen!2smm!4v1721802343000!5m2!1sen!2smm"
   width="100%"
-  height="450"
+  height="500"
   style="border:0;"
   allowfullscreen=""
   loading="lazy"
